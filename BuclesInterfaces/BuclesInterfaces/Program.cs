@@ -77,7 +77,7 @@ namespace BuclesInterfaces
         }
         static void Main(string[] args)
         {
-            //numeros romanos
+            //numeros romanos, bucle pidiendo numeros romanos hasta que metamos cero, en 1 y 3999
 
             
         }
