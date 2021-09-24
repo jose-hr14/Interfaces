@@ -4,7 +4,7 @@ namespace BuclesInterfaces
 {
     class Program
     {
-        public void Ej01()
+        public static void Ej01()
         {
             int contador = 1;
             Console.WriteLine("Bucle PARA");
@@ -29,7 +29,7 @@ namespace BuclesInterfaces
                 contador++;
             } while (contador <= 5);
         }
-        public void Ej02()
+        public static void Ej02()
         {
             Console.Write("Introduce un número: ");
             string multiplicando = Console.ReadLine();
@@ -43,7 +43,7 @@ namespace BuclesInterfaces
             Console.Write("Pulsa una tecla para terminar: ");
             Console.ReadLine();
         }
-        public void Ej03()
+        public static void Ej03()
         {
             /*
             string palabra;
@@ -60,7 +60,7 @@ namespace BuclesInterfaces
                 palabra = Console.ReadLine();
             }
         }
-        public void Ej04()
+        public static void Ej04()
         {
             string palabra;
             do
@@ -75,11 +75,143 @@ namespace BuclesInterfaces
             Console.Write("Pulse cualquier tecla para terminar: ");
             Console.ReadLine();
         }
+        public static string Ej05(int num)
+        {
+            if(num < 1 && num > 3999)
+            {
+                return "Numero incompatible";
+            }
+            string numConvertido = num.ToString();
+            string numRomano = "";
+            for(int i = 0; i < numConvertido.Length; i++)
+            {
+                if(i == 0)
+                {
+                    switch(numConvertido[i])
+                    {
+                        case '1':
+                            numRomano += "M";
+                            break;
+                        case '2':
+                            numRomano += "MM";
+                            break;
+                        case '3':
+                            numRomano += "MMM";
+                            break;
+
+                    }
+                }
+                if (i == 1)
+                {
+                    switch (numConvertido[i])
+                    {
+                        case '1':
+                            numRomano += "C";
+                            break;
+                        case '2':
+                            numRomano += "CC";
+                            break;
+                        case '3':
+                            numRomano += "CCC";
+                            break;
+                        case '4':
+                            numRomano += "CD";
+                            break;
+                        case '5':
+                            numRomano += "D";
+                            break;
+                        case '6':
+                            numRomano += "DC";
+                            break;
+                        case '7':
+                            numRomano += "DCC";
+                            break;
+                        case '8':
+                            numRomano += "DCC";
+                            break;
+                        case '9':
+                            numRomano += "CM";
+                            break;
+
+
+                    }
+                }
+                if (i == 2)
+                {
+                    switch (numConvertido[i])
+                    {
+                        case '1':
+                            numRomano += "X";
+                            break;
+                        case '2':
+                            numRomano += "XX";
+                            break;
+                        case '3':
+                            numRomano += "XXX";
+                            break;
+                        case '4':
+                            numRomano += "XL";
+                            break;
+                        case '5':
+                            numRomano += "L";
+                            break;
+                        case '6':
+                            numRomano += "LX";
+                            break;
+                        case '7':
+                            numRomano += "LXX";
+                            break;
+                        case '8':
+                            numRomano += "LXXX";
+                            break;
+                        case '9':
+                            numRomano += "XC";
+                            break;
+                    }
+                }
+                if (i == 3)
+                {
+                    switch (numConvertido[i])
+                    {
+                        case '1':
+                            numRomano += "I";
+                            break;
+                        case '2':
+                            numRomano += "II";
+                            break;
+                        case '3':
+                            numRomano += "III";
+                            break;
+                        case '4':
+                            numRomano += "IV";
+                            break;
+                        case '5':
+                            numRomano += "V";
+                            break;
+                        case '6':
+                            numRomano += "VI";
+                            break;
+                        case '7':
+                            numRomano += "VII";
+                            break;
+                        case '8':
+                            numRomano += "VIII";
+                            break;
+                        case '9':
+                            numRomano += "IX";
+                            break;
+
+                    }
+                }                
+            }
+            return numRomano;
+        }
         static void Main(string[] args)
         {
             //numeros romanos, bucle pidiendo numeros romanos hasta que metamos cero, en 1 y 3999
 
-            
+            string numRomano = Ej05(3555);
+            Console.WriteLine(numRomano);
         }
     }
 }
