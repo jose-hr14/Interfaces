@@ -267,15 +267,17 @@ namespace BuclesInterfaces
             int num;
             int serie;
 
-
-
             Console.Write("Introduce un número (0=finalizar): ");
             int.TryParse(Console.ReadLine(), out num);
             serie = num;
+            if(num != 1 || num != 0)
+            {
+
+            }
             do
             {
                 
-                if(num % 2 == 0)
+                if(serie % 2 == 0)
                 {
                     serie /= 2; 
                 }
