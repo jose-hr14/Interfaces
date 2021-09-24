@@ -263,7 +263,28 @@ namespace BuclesInterfaces
         }
         static void Main()
         {
-            Ej06();
+            //si par, divide entre dos, si impar, multiplica por 3 y se le suma 1
+            int num;
+            int serie;
+
+
+
+            Console.Write("Introduce un número (0=finalizar): ");
+            int.TryParse(Console.ReadLine(), out num);
+            serie = num;
+            do
+            {
+                
+                if(num % 2 == 0)
+                {
+                    serie /= 2; 
+                }
+                else
+                {
+                    serie = (serie * 3) + 1;
+                }
+                Console.WriteLine(serie);
+            } while (serie != 1 );
         }
     }
 }
