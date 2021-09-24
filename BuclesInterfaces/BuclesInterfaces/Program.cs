@@ -77,7 +77,7 @@ namespace BuclesInterfaces
         }
         public static string Ej05(int num)
         {
-            if(num < 1 && num > 3999)
+            if(num < 1 || num > 3999)
             {
                 return "Numero incompatible";
             }
@@ -85,7 +85,7 @@ namespace BuclesInterfaces
             string numRomano = "";
             for(int i = 0; i < numConvertido.Length; i++)
             {
-                if(i == 0)
+                if(i == 0 && numConvertido.Length == 4)
                 {
                     switch(numConvertido[i])
                     {
@@ -101,7 +101,7 @@ namespace BuclesInterfaces
 
                     }
                 }
-                if (i == 1)
+                if ((i == 1 && numConvertido.Length == 4) || (i == 0 && numConvertido.Length == 3))
                 {
                     switch (numConvertido[i])
                     {
@@ -136,7 +136,7 @@ namespace BuclesInterfaces
 
                     }
                 }
-                if (i == 2)
+                if ((i == 2 && numConvertido.Length == 4) || (i == 1 && numConvertido.Length == 3) || (i == 0 && numConvertido.Length == 2))
                 {
                     switch (numConvertido[i])
                     {
@@ -169,7 +169,7 @@ namespace BuclesInterfaces
                             break;
                     }
                 }
-                if (i == 3)
+                if ((i == 3 && numConvertido.Length == 4) || (i == 2 && numConvertido.Length == 3) || (i == 1 && numConvertido.Length == 2) || (i == 0 && numConvertido.Length == 1))
                 {
                     switch (numConvertido[i])
                     {
@@ -206,12 +206,64 @@ namespace BuclesInterfaces
             }
             return numRomano;
         }
-        static void Main(string[] args)
+        public static void Ej05aux()
         {
-            //numeros romanos, bucle pidiendo numeros romanos hasta que metamos cero, en 1 y 3999
+            //numeros romanos, bucle pidiendo numeros romanos hasta que metamos cero, entre 1 y 3999
+            string num;
+            string numRomano;
+            do
+            {
+                Console.Write("Introduce un número: ");
+                num = Console.ReadLine();
+                if (int.TryParse(num, out int numConvertido))
+                {
+                    numRomano = Ej05(numConvertido);
+                    Console.WriteLine(numRomano);
+                }
+                else
+                {
+                    Console.WriteLine("Tienes que introducir un número");
+                }
 
-            string numRomano = Ej05(3555);
-            Console.WriteLine(numRomano);
+            } while (num != "0");
+        }
+        public static void Ej05Solucion()
+        {
+            int indoarabigo, millares, centenas, decenas, unidades, restoMillares, restoCEntenas;
+            string romanoMillares = "", romanoCentenas = "", romanoDecenas = "", romanoUnidades = "";
+            do
+            {
+                Console.Write("Escriba un numero entero entre 1 y 3999 (0=finalizar)");
+                int.TryParse(Console.ReadLine(), out indoarabigo);
+
+                if(indoarabigo > 0 && indoarabigo < 4000)
+                {
+                    millares = indoarabigo / 1000;
+                    restoMillares = indoarabigo % 1000;
+
+                    centenas = restoMillares / 100;
+                    restoCEntenas = restoMillares % 100;
+
+                    decenas = restoCEntenas / 10;
+                    unidades = restoCEntenas % 10;
+                }
+            } while (true);
+        }
+        public static void Ej06()
+        {
+            int num = 1;
+            int total = 1;
+            do
+            {
+                Console.Write("Introduce un número (1=finalizar): ");
+                int.TryParse(Console.ReadLine(), out num);
+                total *= num;
+            } while (num != 1);
+            Console.WriteLine("El resultado de multiplicar los números introducidos es: " + total);
+        }
+        static void Main()
+        {
+            Ej06();
         }
     }
 }
