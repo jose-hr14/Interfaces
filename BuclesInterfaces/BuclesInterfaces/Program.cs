@@ -265,28 +265,32 @@ namespace BuclesInterfaces
         {
             //si par, divide entre dos, si impar, multiplica por 3 y se le suma 1
             int num;
-            int serie;
 
-            Console.Write("Introduce un número (0=finalizar): ");
-            int.TryParse(Console.ReadLine(), out num);
-            serie = num;
-            if(num != 1 || num != 0)
+            while(true)
             {
+                Console.Write("Introduce un número (0=finalizar): ");
+                int.TryParse(Console.ReadLine(), out num);
+                if (num == 0)
+                {
+                    return;
+                }
 
+                Console.WriteLine(num);
+                while (num != 1)
+                {
+                    if (num % 2 == 0)
+                    {
+                        num /= 2;
+                    }
+                    else
+                    {
+                        num = (num * 3) + 1;
+                    }
+                    Console.WriteLine(num);
+                }
             }
-            do
-            {
-                
-                if(serie % 2 == 0)
-                {
-                    serie /= 2; 
-                }
-                else
-                {
-                    serie = (serie * 3) + 1;
-                }
-                Console.WriteLine(serie);
-            } while (serie != 1 );
+            
+            
         }
     }
 }
