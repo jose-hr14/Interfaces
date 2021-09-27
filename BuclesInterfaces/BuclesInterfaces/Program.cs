@@ -261,22 +261,24 @@ namespace BuclesInterfaces
             } while (num != 1);
             Console.WriteLine("El resultado de multiplicar los números introducidos es: " + total);
         }
-        static void Main()
+        public static void Ej07()
         {
             //si par, divide entre dos, si impar, multiplica por 3 y se le suma 1
-            int num;
-
-            while(true)
+            int num = 1;
+            while (num != 0)
             {
                 Console.Write("Introduce un número (0=finalizar): ");
-                int.TryParse(Console.ReadLine(), out num);
-                if (num == 0)
+                if(!int.TryParse(Console.ReadLine(), out num))
                 {
-                    return;
+                    num = 1;
                 }
 
-                Console.WriteLine(num);
-                while (num != 1)
+                if(num != 0)
+                {
+                    Console.WriteLine(num);
+                }
+                
+                while (num > 1)
                 {
                     if (num % 2 == 0)
                     {
@@ -289,8 +291,41 @@ namespace BuclesInterfaces
                     Console.WriteLine(num);
                 }
             }
-            
-            
+        }
+        public static int Ej08(int num)
+        {
+            int res;
+            if(num == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                res = num * Ej08(num - 1);
+            }
+            return res;
+        }
+        public static int Ej09(int num)
+        {
+            if(num == 0)
+            {
+                return 0;
+            }
+            if(num == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                Console.WriteLine(Ej09(num - 1) + Ej09(num - 2));
+                return 0;
+            }
+        }
+        static void Main()
+        {
+            //Ej07();
+            //int num = Ej08(6);
+            int num = Ej09(3);
         }
     }
 }
