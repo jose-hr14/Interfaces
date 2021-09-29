@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace BuclesInterfaces
 {
@@ -307,25 +308,213 @@ namespace BuclesInterfaces
         }
         public static int Ej09(int num)
         {
+            int res;
             if(num == 0)
             {
-                return 0;
+                res = 0;
             }
             if(num == 1)
             {
-                return 1;
+                res = 1;
             }
             else
             {
-                Console.WriteLine(Ej09(num - 1) + Ej09(num - 2));
-                return 0;
+                res = Ej09(num - 1) + Ej09(num - 2);
+            }
+            return res;
+        }
+        public static int Ej09Solucion(int num)
+        {
+            int res;
+            if (num == 0)
+            {
+                res = 0;
+            }
+            if(num == 1)
+            {
+                res = 1;
+            }                
+            else
+            {
+                res = Ej09Solucion(num - 1) + Ej09Solucion(num - 2);
+            }            
+            return res;
+        }
+        public static void Ej09Aux()
+        {
+            int num = 1;
+            do
+            {
+                do
+                {
+                    Console.Write("Dime un número (0 para salir): ");
+                } while (!int.TryParse(Console.ReadLine(), out num));
+
+                if (num != 0)
+                {
+                    int res = Ej09Solucion(num);
+                    Console.WriteLine(res);
+                }
+            } while (num != 0);
+        }
+        public static void Ej10()
+        {
+            //Regex expRegFecha = new Regex("^[0-9]{2}-[0-9]{2}-[0-9]{4}$");
+            while (true)
+            {
+                Console.Write("Introduce una fecha en el formato dd-mm-aaaa: ");
+                string fecha = Console.ReadLine();
+
+                if (fecha == "0")
+                {
+                    return;
+                }
+
+                bool fechaValida = true;
+
+                if (fecha[2] != '-' || fecha[5] != '-')
+                {
+                    fechaValida = false;
+                }
+
+                string dia = "";
+                string mes = "";
+                string año = "";
+
+                try
+                {
+                    dia = fecha[0].ToString() + fecha[1].ToString();
+                    mes = fecha[3].ToString() + fecha[4].ToString();
+                    año = fecha[6].ToString() + fecha[7].ToString() + fecha[8].ToString() + fecha[9].ToString();
+                }
+                catch
+                {
+                    fechaValida = false;
+                }
+
+                int diaNum = 0;
+                int mesNum = 0;
+                int añoNum = 0;
+
+                if (!int.TryParse(dia, out diaNum) || !int.TryParse(mes, out mesNum) || !int.TryParse(año, out añoNum))
+                {
+                    fechaValida = false;
+                }
+
+                if (diaNum < 1 || diaNum > 31 || mesNum < 1 || mesNum > 12)
+                {
+                    fechaValida = false;
+                }
+
+                switch (esBisiesto(añoNum))
+                {
+                    case true:
+                        {
+                            if (mesNum == 2 && diaNum > 29)
+                            {
+                                fechaValida = false;
+                            }
+                            break;
+                        }
+
+                    case false:
+                        {
+                            if (mesNum == 2 && diaNum > 28)
+                            {
+                                fechaValida = false;
+                            }
+                            break;
+                        }
+                }
+                if (fechaValida)
+                {
+                    Console.WriteLine("Fecha válida");
+                }
+                else if (!fechaValida)
+                {
+                    Console.WriteLine("Fecha inválida");
+                }
+
+            }
+
+
+        }
+        public static bool esBisiesto(int año)
+        {
+            if(año % 4 == 0)
+            {
+                if(año % 100 == 0)
+                {
+                    if(año % 400 == 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
         static void Main()
         {
             //Ej07();
             //int num = Ej08(6);
-            int num = Ej09(3);
+            //int num = Ej09(3);
+            //escribir una fecha en dd-mm-1997, 29-02-1900 no es valido
+
+            //Ej10();
+            int num = 1;
+            do
+            {
+                do
+                {
+                    Console.Write("Dime un número (0 para salir): ");
+                } while (!int.TryParse(Console.ReadLine(), out num));
+
+                if (num != 0)
+                {
+                    int res = Ej09Solucion(num);
+                    Console.WriteLine(res);
+                }
+            } while (num != 0);
+
+
+
+
+
+            //Comprobar carné de identidad, metes los números y da la letra
+            //8 letras
+
+            char[] dniRestos = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V','H', 'L', 'C', 'K', 'E'};
+            string dni = Console.ReadLine();
+            char letra = ' ';
+            int dniNum = 0;
+            if(dni.Length > 8 || !int.TryParse(dni, out dniNum))
+            {
+                Console.WriteLine("DNI inválido");
+            }
+            else
+            {
+                int resto = dniNum % 23;
+                if(resto >= 0 || resto <= 23)
+                {
+                    letra = dniRestos[resto];
+                    Console.WriteLine(dni + letra);
+                }
+                
+            }
+
+
+
         }
     }
 }
