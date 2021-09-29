@@ -471,6 +471,8 @@ namespace BuclesInterfaces
             //int num = Ej09(3);
             //escribir una fecha en dd-mm-1997, 29-02-1900 no es valido
 
+            Ej09Solucion(8);
+
             //Ej10();
             int num = 1;
             do
