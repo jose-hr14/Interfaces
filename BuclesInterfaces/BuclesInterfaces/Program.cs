@@ -357,8 +357,34 @@ namespace BuclesInterfaces
                 }
             } while (num != 0);
         }
+        public static void Ej09Aux02()
+        {
+            //Ej07();
+            //int num = Ej08(6);
+            //int num = Ej09(3);
+            //escribir una fecha en dd-mm-1997, 29-02-1900 no es valido
+
+            Ej09Solucion(8);
+
+            //Ej10();
+            int num = 1;
+            do
+            {
+                do
+                {
+                    Console.Write("Dime un número (0 para salir): ");
+                } while (!int.TryParse(Console.ReadLine(), out num));
+
+                if (num != 0)
+                {
+                    int res = Ej09Solucion(num);
+                    Console.WriteLine(res);
+                }
+            } while (num != 0);
+        }
         public static void Ej10()
         {
+
             //Regex expRegFecha = new Regex("^[0-9]{2}-[0-9]{2}-[0-9]{4}$");
             while (true)
             {
@@ -464,59 +490,56 @@ namespace BuclesInterfaces
                 return false;
             }
         }
-        static void Main()
+        public static void Ej11()
         {
-            //Ej07();
-            //int num = Ej08(6);
-            //int num = Ej09(3);
-            //escribir una fecha en dd-mm-1997, 29-02-1900 no es valido
-
-            Ej09Solucion(8);
-
-            //Ej10();
-            int num = 1;
-            do
-            {
-                do
-                {
-                    Console.Write("Dime un número (0 para salir): ");
-                } while (!int.TryParse(Console.ReadLine(), out num));
-
-                if (num != 0)
-                {
-                    int res = Ej09Solucion(num);
-                    Console.WriteLine(res);
-                }
-            } while (num != 0);
-
-
-
-
-
             //Comprobar carné de identidad, metes los números y da la letra
             //8 letras
 
-            char[] dniRestos = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V','H', 'L', 'C', 'K', 'E'};
-            string dni = Console.ReadLine();
+            char[] dniRestos = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E' };
             char letra = ' ';
             int dniNum = 0;
-            if(dni.Length > 8 || !int.TryParse(dni, out dniNum))
+            bool salir = false;
+
+            do
             {
-                Console.WriteLine("DNI inválido");
-            }
-            else
-            {
-                int resto = dniNum % 23;
-                if(resto >= 0 || resto <= 23)
+                Console.Write("Introduce las cifras del DNI, escriba 0 para limpiar: ");
+                string dni = Console.ReadLine();
+
+                if (dni == "0")
                 {
-                    letra = dniRestos[resto];
-                    Console.WriteLine(dni + letra);
+                    salir = true;
                 }
-                
-            }
 
+                if (dni.Length == 8 && int.TryParse(dni, out dniNum) && !salir)
+                {
+                    int resto = dniNum % 23;
+                    if (resto >= 0 || resto <= 23)
+                    {
+                        letra = dniRestos[resto];
+                        Console.WriteLine(dni + letra);
+                    }
+                }
 
+            } while (!salir);
+        }
+        static void Main()
+        {
+            //MMMCMXCIX
+            //sumas a pelo, si suma iv saldría 6, pero si le restas dos, haces la diferencia y sale correcto, sale 4
+            string numRomano = Console.ReadLine();
+            int num = 0;
 
+            //Regex expRegFecha = new Regex("^[0-9]{2}-[0-9]{2}-[0-9]{4}$");            
+            Regex numRomanos = new Regex("^M[0,3](CM|CD|D?C[0,3])(XC|XL|L?X[0,3])(IX|IV|V?I[0,3])$");
+
+            bool guau = numRomanos.IsMatch(numRomano);
+
+            Regex millares = new Regex("^[D]{0,1}[C]{0,3}");
+            Regex centenas = new Regex("^[D]{0,1}[C]{0,3}");
+            Regex decenas = new Regex("^[M]{0,3}");
+            Regex unidades = new Regex("^[M]{0,3}");
+            //A pelo, procedimientos y funciones, con objetos
+            //porcentajes 21%
         }
     }
 }
