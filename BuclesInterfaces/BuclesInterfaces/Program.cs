@@ -648,6 +648,8 @@ namespace BuclesInterfaces
             //De euros a pesetas
             Ej16();
 
+            //mostrar con diversas cifras decimales, float f, double sin nada, decimal con m, rollo 4.14f o 3.14m
+
         }
     }
 }
