@@ -522,24 +522,132 @@ namespace BuclesInterfaces
 
             } while (!salir);
         }
-        static void Main()
+        public static void Ej12()
         {
             //MMMCMXCIX
             //sumas a pelo, si suma iv saldría 6, pero si le restas dos, haces la diferencia y sale correcto, sale 4
-            string numRomano = Console.ReadLine();
-            int num = 0;
+            string numRomano = "";
+
 
             //Regex expRegFecha = new Regex("^[0-9]{2}-[0-9]{2}-[0-9]{4}$");            
             Regex numRomanos = new Regex("^M[0,3](CM|CD|D?C[0,3])(XC|XL|L?X[0,3])(IX|IV|V?I[0,3])$");
 
-            bool guau = numRomanos.IsMatch(numRomano);
+            bool esRomano = numRomanos.IsMatch(numRomano);
 
-            Regex millares = new Regex("^[D]{0,1}[C]{0,3}");
-            Regex centenas = new Regex("^[D]{0,1}[C]{0,3}");
-            Regex decenas = new Regex("^[M]{0,3}");
-            Regex unidades = new Regex("^[M]{0,3}");
-            //A pelo, procedimientos y funciones, con objetos
+            //Regex millares = new Regex("^[D]{0,1}[C]{0,3}");
+            //Regex centenas = new Regex("^[D]{0,1}[C]{0,3}");
+            //Regex decenas = new Regex("^[M]{0,3}");
+            //Regex unidades = new Regex("^[M]{0,3}");
+            //A pelo, procedimientos y funciones, con objetos, 13, 14, 15
+            //C
             //porcentajes 21%
+            //los procedimientos anteriores se meterán en la clase
+        }
+        public static void Ej13()
+        {
+            int impuesto = 0;            
+            string impuestoCadena = "";
+            string precioCadena = "";
+            bool convertido = false;
+            int precio = 0;
+
+            do
+            {
+                Console.Write("Introduce un impuesto: 4%, 10%, 21%: ");
+                impuestoCadena = Console.ReadLine();
+                convertido = int.TryParse(impuestoCadena, out impuesto);
+            } while (!convertido || (impuesto != 4 && impuesto != 10 && impuesto != 21));
+
+            do
+            {
+                Console.Write("Introduce un precio: ");
+                precioCadena = Console.ReadLine();
+                convertido = int.TryParse(precioCadena, out precio);
+            } while (!convertido || precio < 1);
+          
+            precio += (precio * impuesto) / 100;
+            Console.WriteLine("Un producto de " + precioCadena +" euros con un impuesto del " + impuestoCadena + "%  es " + precio + " euros");                        
+        }
+        public static void Ej14()
+        {
+            int impuesto = 0;
+            int precio = 0;
+            double precioCalculado = 0;
+
+            impuesto = leerIva();
+            precio = leerPrecio();            
+            precioCalculado = calcularPrecio(precio, impuesto);
+
+            imprimirPrecioCalculado(precio, impuesto, precioCalculado);
+
+            static int leerPrecio()
+            {
+                int precio = 0;
+                string precioCadena = "";
+                bool convertido = false;
+                do
+                {
+                    Console.Write("Introduce un precio: ");
+                    precioCadena = Console.ReadLine();
+                    convertido = int.TryParse(precioCadena, out precio);
+                } while (!convertido || precio < 1);
+                return precio;
+            }
+            static int leerIva()
+            {
+                string impuestoCadena = "";
+                bool convertido = false;
+                int impuesto = 0;
+                do
+                {
+                    Console.Write("Introduce un impuesto: 4%, 10%, 21%: ");
+                    impuestoCadena = Console.ReadLine();
+                    convertido = int.TryParse(impuestoCadena, out impuesto);
+                } while (!convertido || (impuesto != 4 && impuesto != 10 && impuesto != 21));
+                return impuesto;
+            }
+            static double calcularPrecio(int precio, int impuesto)
+            {
+                precio += (precio * impuesto) / 100;
+                return precio;
+            }
+            static void imprimirPrecioCalculado(int precio, int impuesto, double precioCalculado)
+            {
+                Console.WriteLine("Un producto de " + precio + " euros con un impuesto del " + impuesto + "%  es " + precioCalculado + " euros");
+            }
+        }
+        public static void Ej15()
+        {
+            productoIVA producto = new productoIVA();
+            producto.imprimirPrecioTotal();
+
+        }
+        public static void Ej16()
+        {
+            Console.WriteLine("Convertidor de euros a pesetas con programación 'secuencial'");
+
+            double pesetas = 166.386;
+            bool convertido = false;
+            double euros = 0;
+
+            do
+            {
+                Console.Write("Escribe una cantidad en euros: ");                
+                convertido = Double.TryParse(Console.ReadLine(), out euros);
+            } while (!convertido);
+
+            pesetas *= euros;
+
+            Console.WriteLine(euros + " euros son " + pesetas + " pesetas");
+            Console.WriteLine();
+
+
+        }
+        static void Main()
+        {
+            //De euros a pesetas
+            Ej16();
+
         }
     }
 }
