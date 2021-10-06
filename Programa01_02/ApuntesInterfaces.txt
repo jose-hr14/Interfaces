@@ -1,0 +1,2 @@
+txb para los textbox
+metemos nombre en el textbox, le das al boton saludo, y en el labe de abajo aparece el hola pepito

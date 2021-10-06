@@ -526,13 +526,33 @@ namespace BuclesInterfaces
         {
             //MMMCMXCIX
             //sumas a pelo, si suma iv saldría 6, pero si le restas dos, haces la diferencia y sale correcto, sale 4
-            string numRomano = "";
+            string numRomano = "MDCCLXXVII";
+            int numeroArabigo = 0;
 
 
             //Regex expRegFecha = new Regex("^[0-9]{2}-[0-9]{2}-[0-9]{4}$");            
-            Regex numRomanos = new Regex("^M[0,3](CM|CD|D?C[0,3])(XC|XL|L?X[0,3])(IX|IV|V?I[0,3])$");
+            Regex numRomanos = new Regex("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
 
             bool esRomano = numRomanos.IsMatch(numRomano);
+
+            if(esRomano)
+            {
+                for(int i = 0; i < numRomano.Length; i++)
+                {
+                    switch(numRomano[i])
+                    {
+                        case 'M':
+                            numeroArabigo += 1000;
+                            break;
+                        case 'C':
+                            numeroArabigo += 100;
+                            break;
+                        case 'D':
+                            numeroArabigo += 500;
+                            break;
+                    }
+                }
+            }
 
             //Regex millares = new Regex("^[D]{0,1}[C]{0,3}");
             //Regex centenas = new Regex("^[D]{0,1}[C]{0,3}");
@@ -640,14 +660,53 @@ namespace BuclesInterfaces
 
             Console.WriteLine(euros + " euros son " + pesetas + " pesetas");
             Console.WriteLine();
+        }
+        public static void Ej17()
+        {
+            Console.WriteLine("Convertidor de euros a pesetas con programación 'secuencial'");
+            double pesetas;
+            double euros;
+
+            euros = leerEuros();
+            pesetas = conversionPesetas(euros);
+            imprimirConversionPesetas(euros, pesetas);
 
 
+            static double leerEuros()
+            {
+                bool convertido;
+                double euros;
+                do
+                {
+                    Console.Write("Escribe una cantidad en euros: ");
+                    convertido = Double.TryParse(Console.ReadLine(), out euros);
+                } while (!convertido);
+                return euros;
+            }
+            static double conversionPesetas(double euros)
+            {
+                return euros * 166.386;
+            }
+            static void imprimirConversionPesetas(double euros, double pesetas)
+            {
+                Console.WriteLine(euros + " euros son " + pesetas + " pesetas");
+                Console.WriteLine();
+            }
+        }
+        static void Ej18()
+        {
+            conversorEuroPeseta nuevaconversion = new conversorEuroPeseta();
+            nuevaconversion.setEuros();
+            nuevaconversion.setPesetas();
+            nuevaconversion.imprimirPesetas();
         }
         static void Main()
         {
             //De euros a pesetas
-            Ej16();
-
+            //Ej16();
+            //Ej17();
+            //Ej18();
+            Ej12();
             //mostrar con diversas cifras decimales, float f, double sin nada, decimal con m, rollo 4.14f o 3.14m
 
         }
