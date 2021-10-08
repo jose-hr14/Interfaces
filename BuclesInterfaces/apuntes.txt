@@ -1,0 +1,37 @@
+Enteros
+SByte (con signo) / Byte(sin signo, 8 bits)
+
+Short / uShort (16 bits)
+Int/UInt(32)
+
+Long/ULong(64bits)
+
+Reales
+Float 32 bits
+Double 64 bits
+Decimal 128 bits
+
+Para conversiones
+Convert.toByte(); devuelve byte
+byte.Parse(); devuelve byte
+byte.tryParse(parámetro, out byte byteSalida); devuelve bool
+
+Sería parecido para el resto de casos
+Convert.toInt16();
+short.Parse();
+
+Convert.toInt32()
+int.Parse();
+int.tryParse();
+
+Convert.toSingle(); para float
+float.Parse();
+float.tryParse();
+
+Convert.toDouble();
+double.Parse();
+double.tryParse();
+
+Convert.toDecilmal();
+decimal.Parse();
+decimal.tryParse();
