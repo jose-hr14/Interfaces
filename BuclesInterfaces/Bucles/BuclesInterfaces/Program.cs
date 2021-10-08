@@ -231,7 +231,7 @@ namespace BuclesInterfaces
         public static void Ej05Solucion()
         {
             int indoarabigo, millares, centenas, decenas, unidades, restoMillares, restoCEntenas;
-            string romanoMillares = "", romanoCentenas = "", romanoDecenas = "", romanoUnidades = "";
+            
             do
             {
                 Console.Write("Escriba un numero entero entre 1 y 3999 (0=finalizar)");
@@ -524,72 +524,78 @@ namespace BuclesInterfaces
         }
         public static void Ej12()
         {
-            //MMMCMXCIX
-            //sumas a pelo, si suma iv saldría 6, pero si le restas dos, haces la diferencia y sale correcto, sale 4
-            Console.Write("Introduce un número romano: ");
-            string numRomano = Console.ReadLine();
-            int numeroArabigo = 0;
-
-
-            //Regex expRegFecha = new Regex("^[0-9]{2}-[0-9]{2}-[0-9]{4}$");            
-            Regex numRomanos = new Regex("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
-
-            bool esRomano = numRomanos.IsMatch(numRomano);
-
-            if(esRomano)
+            while (true)
             {
-                for(int i = 0; i < numRomano.Length; i++)
+                //MMMCMXCIX
+                //sumas a pelo, si suma iv saldría 6, pero si le restas dos, haces la diferencia y sale correcto, sale 4
+                Console.Write("Introduce un número romano: ");
+                string numRomano = Console.ReadLine();
+                if (numRomano == "")
+                    return;
+                int numeroArabigo = 0;
+
+
+                //Regex expRegFecha = new Regex("^[0-9]{2}-[0-9]{2}-[0-9]{4}$");            
+                Regex numRomanos = new Regex("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
+
+                bool esRomano = numRomanos.IsMatch(numRomano);
+
+                if (esRomano)
                 {
-                    switch(numRomano[i])
+                    for (int i = 0; i < numRomano.Length; i++)
                     {
-                        case 'M':
-                            numeroArabigo += 1000;
-                            break;
-                        case 'D':
-                            numeroArabigo += 500;
-                            break;
-                        case 'C':
-                            numeroArabigo += 100;
-                            break;
-                        case 'L':
-                            numeroArabigo += 50;
-                            break;
-                        case 'X':
-                            numeroArabigo += 10;
-                            break;
-                        case 'V':
-                            numeroArabigo += 5;
-                            break;
-                        case 'I':
-                            numeroArabigo += 1;
-                            break;
+                        switch (numRomano[i])
+                        {
+                            case 'M':
+                                numeroArabigo += 1000;
+                                break;
+                            case 'D':
+                                numeroArabigo += 500;
+                                break;
+                            case 'C':
+                                numeroArabigo += 100;
+                                break;
+                            case 'L':
+                                numeroArabigo += 50;
+                                break;
+                            case 'X':
+                                numeroArabigo += 10;
+                                break;
+                            case 'V':
+                                numeroArabigo += 5;
+                                break;
+                            case 'I':
+                                numeroArabigo += 1;
+                                break;
+                        }
                     }
+                    if (numRomano.Contains("IV"))
+                    {
+                        numeroArabigo -= 2;
+                    }
+                    if (numRomano.Contains("IX"))
+                    {
+                        numeroArabigo -= 2;
+                    }
+                    if (numRomano.Contains("XL"))
+                    {
+                        numeroArabigo -= 20;
+                    }
+                    if (numRomano.Contains("XC"))
+                    {
+                        numeroArabigo -= 20;
+                    }
+                    if (numRomano.Contains("CM"))
+                    {
+                        numeroArabigo -= 200;
+                    }
+                    if (numRomano.Contains("CD"))
+                    {
+                        numeroArabigo -= 200;
+                    }
+                    Console.WriteLine(numeroArabigo);
+
                 }
-                if(numRomano.Contains("IV"))
-                {
-                    numeroArabigo -= 2;
-                }
-                if (numRomano.Contains("IX"))
-                {
-                    numeroArabigo -= 2;
-                }
-                if (numRomano.Contains("XL"))
-                {
-                    numeroArabigo -= 20;
-                }
-                if (numRomano.Contains("XC"))
-                {
-                    numeroArabigo -= 20;
-                }
-                if (numRomano.Contains("CM"))
-                {
-                    numeroArabigo -= 200;
-                }
-                if (numRomano.Contains("CD"))
-                {
-                    numeroArabigo -= 200;
-                }
-                Console.WriteLine(numeroArabigo);
 
             }
 
@@ -684,31 +690,40 @@ namespace BuclesInterfaces
         public static void Ej16()
         {
             Console.WriteLine("Convertidor de euros a pesetas con programación 'secuencial'");
-
-            double pesetas = 166.386;
-            bool convertido = false;
-            double euros = 0;
-
-            do
+            while(true)
             {
-                Console.Write("Escribe una cantidad en euros: ");                
-                convertido = Double.TryParse(Console.ReadLine(), out euros);
-            } while (!convertido);
+                double pesetas = 166.386;
+                bool convertido = false;
+                double euros = 0;
 
-            pesetas *= euros;
+                do
+                {
+                    Console.Write("Escribe una cantidad en euros: ");
+                    convertido = Double.TryParse(Console.ReadLine(), out euros);
+                } while (!convertido);
+                if (euros == 0)
+                    return;
 
-            Console.WriteLine(euros + " euros son " + pesetas + " pesetas");
-            Console.WriteLine();
+                pesetas *= euros;
+
+                Console.WriteLine(euros + " euros son " + pesetas + " pesetas");
+                Console.WriteLine();
+            }
         }
         public static void Ej17()
         {
-            Console.WriteLine("Convertidor de euros a pesetas con programación 'secuencial'");
-            double pesetas;
-            double euros;
+            Console.WriteLine("Convertidor de euros a pesetas");
+            while(true)
+            {
+                double pesetas;
+                double euros;
 
-            euros = leerEuros();
-            pesetas = conversionPesetas(euros);
-            imprimirConversionPesetas(euros, pesetas);
+                euros = leerEuros();
+                if (euros == 0)
+                    return;
+                pesetas = conversionPesetas(euros);
+                imprimirConversionPesetas(euros, pesetas);
+            }
 
 
             static double leerEuros()
@@ -734,19 +749,29 @@ namespace BuclesInterfaces
         }
         static void Ej18()
         {
-            conversorEuroPeseta nuevaconversion = new conversorEuroPeseta();
-            nuevaconversion.setEuros();
-            nuevaconversion.setPesetas();
-            nuevaconversion.imprimirPesetas();
+            while(true)
+            {
+                conversorEuroPeseta nuevaconversion = new conversorEuroPeseta();
+                nuevaconversion.setEuros();
+                if (nuevaconversion.getEuros() == 0)
+                    return;
+                nuevaconversion.setPesetas();
+                nuevaconversion.imprimirPesetas();
+            }
         }
         static void Main()
         {
             //De euros a pesetas
+            //mostrar con diversas cifras decimales, float f, double sin nada, decimal con m, rollo 4.14f o 3.14m
             //Ej16();
             //Ej17();
-            //Ej18();
-            Ej12();
-            //mostrar con diversas cifras decimales, float f, double sin nada, decimal con m, rollo 4.14f o 3.14m
+            //Ej18();            
+
+            //Ej12();          
+            //Ej16();
+            //Ej17();
+            Ej18();
+
 
         }
     }

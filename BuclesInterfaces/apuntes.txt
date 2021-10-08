@@ -35,3 +35,6 @@ double.tryParse();
 Convert.toDecilmal();
 decimal.Parse();
 decimal.tryParse();
+
+el convert y el parse con un textbox, pero para el numericUpDown solo puede 
+ser con el casting, por ejemplo (Single) numericUpDown.value
