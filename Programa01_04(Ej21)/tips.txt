@@ -1,0 +1,1 @@
+Como el anterior, pero metiendo todo en una función. Según el botón seleccionado, hace una operación u otra.
