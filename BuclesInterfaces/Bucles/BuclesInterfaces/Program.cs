@@ -526,7 +526,8 @@ namespace BuclesInterfaces
         {
             //MMMCMXCIX
             //sumas a pelo, si suma iv saldría 6, pero si le restas dos, haces la diferencia y sale correcto, sale 4
-            string numRomano = "MDCCLXXVII";
+            Console.Write("Introduce un número romano: ");
+            string numRomano = Console.ReadLine();
             int numeroArabigo = 0;
 
 
@@ -544,14 +545,52 @@ namespace BuclesInterfaces
                         case 'M':
                             numeroArabigo += 1000;
                             break;
-                        case 'C':
-                            numeroArabigo += 100;
-                            break;
                         case 'D':
                             numeroArabigo += 500;
                             break;
+                        case 'C':
+                            numeroArabigo += 100;
+                            break;
+                        case 'L':
+                            numeroArabigo += 50;
+                            break;
+                        case 'X':
+                            numeroArabigo += 10;
+                            break;
+                        case 'V':
+                            numeroArabigo += 5;
+                            break;
+                        case 'I':
+                            numeroArabigo += 1;
+                            break;
                     }
                 }
+                if(numRomano.Contains("IV"))
+                {
+                    numeroArabigo -= 2;
+                }
+                if (numRomano.Contains("IX"))
+                {
+                    numeroArabigo -= 2;
+                }
+                if (numRomano.Contains("XL"))
+                {
+                    numeroArabigo -= 20;
+                }
+                if (numRomano.Contains("XC"))
+                {
+                    numeroArabigo -= 20;
+                }
+                if (numRomano.Contains("CM"))
+                {
+                    numeroArabigo -= 200;
+                }
+                if (numRomano.Contains("CD"))
+                {
+                    numeroArabigo -= 200;
+                }
+                Console.WriteLine(numeroArabigo);
+
             }
 
             //Regex millares = new Regex("^[D]{0,1}[C]{0,3}");
