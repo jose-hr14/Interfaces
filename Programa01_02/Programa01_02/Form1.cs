@@ -15,6 +15,17 @@ namespace Programa01_02
         public Form1()
         {
             InitializeComponent();
+            lblNombre.Text = "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            lblNombre.Text = "Hola " + txbNombre.Text.ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            lblNombre.Text = "Adios " + txbNombre.Text.ToString();
         }
     }
 }

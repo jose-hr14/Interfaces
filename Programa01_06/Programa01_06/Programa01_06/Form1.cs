@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Programa01_04_Ej21_
+namespace Programa01_06
 {
     public partial class Form1 : Form
     {

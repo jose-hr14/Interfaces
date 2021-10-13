@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Programa01_04_Ej21_
+namespace Programa01_04
 {
     static class Program
     {

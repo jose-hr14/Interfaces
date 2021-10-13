@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Programa01_04_Ej21_.Properties
+namespace Programa01_03M.Properties
 {
 
 
