@@ -16,5 +16,13 @@ namespace Programa01_06
         {
             InitializeComponent();
         }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            //crear objeto de la clase dialog result
+            DialogResult dialogResult = new DialogResult("Texto", "Titulo ventana", "botones que queremos", );
+            //Ventana modal, no deba volver hasta que hayamos operado
+            //Una ventana´no modal dejaría cerrar y volver
+        }
     }
 }
