@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("Programa02_01")]
+[assembly: AssemblyTitle("Programa02_03A")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("IES Mare Nostrum")]
-[assembly: AssemblyProduct("Programa01_06")]
+[assembly: AssemblyProduct("Programa02_03A")]
 [assembly: AssemblyCopyright("Copyright © IES Mare Nostrum 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("ab83bb79-3f9f-4316-b4f4-845a0d8feefa")]
+[assembly: Guid("0065cdf7-2578-421c-8d68-987ec92bb0dd")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //
