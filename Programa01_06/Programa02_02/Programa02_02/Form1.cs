@@ -8,24 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Programa01_02
+namespace Programa02_02
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
-            lblNombre.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lblNombre.Text = "Hola " + txbNombre.Text.ToString();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            lblNombre.Text = "Adios " + txbNombre.Text.ToString();
+            //Que abra otro formulario, lo abre en un mudo que no te deja regresar al anterior hasta que cierres el segundo
+            //Form.ShowDialog
+            Form2 formulario = new Form2();
+            formulario.ShowDialog();            
+            //formulario.Show();            
         }
     }
 }

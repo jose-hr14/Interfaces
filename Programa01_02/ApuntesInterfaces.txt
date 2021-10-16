@@ -1,2 +1,12 @@
 txb para los textbox
 metemos nombre en el textbox, le das al boton saludo, y en el labe de abajo aparece el hola pepito
+calculadora con radiobotones y radiogroup, el radigroup tiene de nombre botones
+
+importante: en los radio botones, siempre deben haber alguno activado, en este caso podemos dejar
+el de la suma
+
+un bton en mitad de la nada con el texto mostrar
+sale un messagebox con botones, anular, reintentar, omitir
+titulo de ventana: mi tutlo de ventana
+texto: mi texto de mensaje
+de icono, una interrogacion

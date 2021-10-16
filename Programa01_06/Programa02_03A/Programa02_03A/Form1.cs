@@ -8,24 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Programa01_02
+namespace Programa02_03A
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
-            lblNombre.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lblNombre.Text = "Hola " + txbNombre.Text.ToString();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            lblNombre.Text = "Adios " + txbNombre.Text.ToString();
+            Form2 nuevoFormulario = new Form2();
         }
     }
 }

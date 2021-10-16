@@ -1,0 +1,4 @@
+Groupbox con varios checkbox
+calcula el precio de los perifericos marcados
+mostramos el total con un messagebox
+los marcados se mostrarán en el label escondido
