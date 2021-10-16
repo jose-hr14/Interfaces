@@ -761,17 +761,6 @@ namespace BuclesInterfaces
         }
         static void Main()
         {
-            //De euros a pesetas
-            //mostrar con diversas cifras decimales, float f, double sin nada, decimal con m, rollo 4.14f o 3.14m
-            //Ej16();
-            //Ej17();
-            //Ej18();            
-
-            //Ej12();          
-            //Ej16();
-            //Ej17();
-            Ej18();
-
 
         }
     }
