@@ -16,11 +16,16 @@ namespace Programa02_03A
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Form1 formulario1 = new Form1();
+            Application.Run(formulario1);
             //dos cuadros de texto, le das al boton enviar y lo manda al segundo formulario y lo pone en dos label
             //para el paso de variables dos formas
             //una seria con propiedades, y otra cuando llamamos al constructor, pasarle como parámetros lo que queremos
             //para la primera, A, para la segunda, B
+
+            //dos botones y un text box, y rellenar con lo que sea, y enviar
+            //show dialog y show
+            //
         }
     }
 }

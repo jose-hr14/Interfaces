@@ -8,19 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Programa02_03A
+namespace Programa02_03B
 {
-    public partial class Form2 : Form
+    public partial class Form1 : Form
     {
-        public Form2()
+
+        public Form1()
         {
             InitializeComponent();
         }
-        public Form2(string cadena1, string cadena2)
+
+        private void Button1_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            label1.Text = cadena1;
-            label2.Text = cadena2;
+            Form2 formulario2 = new Form2(txbParametros.Text);
+            formulario2.Mensaje = txbPropiedades.Text;
+            formulario2.ShowDialog();
         }
     }
 }
