@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Programa02_04
+namespace Programa02_05
 {
     public partial class Form2 : Form
     {
@@ -22,12 +22,12 @@ namespace Programa02_04
         public Form2(Form1 formulario)
         {
             InitializeComponent();
-            formulario = formulario1;
+            formulario1 = formulario;
         }
         public Form2(string cadena)
         {
             InitializeComponent();
-            lblParametro.Text = cadena;
+            lblParametro.Text = cadena;         
         }
         public string Mensaje
         {
@@ -54,5 +54,9 @@ namespace Programa02_04
             }
         }
 
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formulario1.Visible = true;    
+        }
     }
 }

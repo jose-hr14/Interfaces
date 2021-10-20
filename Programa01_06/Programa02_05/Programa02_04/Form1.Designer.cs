@@ -1,4 +1,4 @@
-﻿namespace Programa02_04
+﻿namespace Programa02_05
 {
     partial class Form1
     {

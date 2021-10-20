@@ -1,4 +1,4 @@
-﻿namespace Programa02_04
+﻿namespace Programa02_05
 {
     partial class Form2
     {
@@ -59,6 +59,7 @@
             this.Controls.Add(this.lblParametro);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
