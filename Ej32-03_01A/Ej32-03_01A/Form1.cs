@@ -15,6 +15,7 @@ namespace Ej32_03_01A
         public Form1()
         {
             InitializeComponent();
+            lblResultado.Text = "";
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -126,7 +127,6 @@ namespace Ej32_03_01A
                     break;
             }
         }
-
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Programa calculadora con menú");
