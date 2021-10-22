@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ej31-TablaMultiplicarWindowsForms", "Ej31-TablaMultiplicarWindowsForms\Ej31-TablaMultiplicarWindowsForms.csproj", "{05309D37-6B8A-4F94-A4FA-296A3206F0CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05309D37-6B8A-4F94-A4FA-296A3206F0CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05309D37-6B8A-4F94-A4FA-296A3206F0CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05309D37-6B8A-4F94-A4FA-296A3206F0CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05309D37-6B8A-4F94-A4FA-296A3206F0CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E88D4E5E-B5CD-4C35-8BF4-D1A804FA5ED2}
+	EndGlobalSection
+EndGlobal
