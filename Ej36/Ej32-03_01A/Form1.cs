@@ -166,21 +166,37 @@ namespace Ej32_03_01A
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             calculadora("suma");
+            AtoolStripStatusLabel1.Text = "A=" + txtbA.Text.ToString();
+            BtoolStripStatusLabel2.Text = "B=" + txtbA.Text.ToString();
+            OperaciontoolStripStatusLabel3.Text = "Suma";
+            RtoolStripStatusLabel4.Text = "R=" + lblResultado.Text;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             calculadora("resta");
+            AtoolStripStatusLabel1.Text = "A=" + txtbA.Text.ToString();
+            BtoolStripStatusLabel2.Text = "B=" + txtbA.Text.ToString();
+            OperaciontoolStripStatusLabel3.Text = "Resta";
+            RtoolStripStatusLabel4.Text = "R=" + lblResultado.Text;
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             calculadora("multiplicacion");
+            AtoolStripStatusLabel1.Text = "A=" + txtbA.Text.ToString();
+            BtoolStripStatusLabel2.Text = "B=" + txtbA.Text.ToString();
+            OperaciontoolStripStatusLabel3.Text = "Multiplicación";
+            RtoolStripStatusLabel4.Text = "R=" + lblResultado.Text;
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             calculadora("division");
+            AtoolStripStatusLabel1.Text = "A=" + txtbA.Text.ToString();
+            BtoolStripStatusLabel2.Text = "B=" + txtbA.Text.ToString();
+            OperaciontoolStripStatusLabel3.Text = "División";
+            RtoolStripStatusLabel4.Text = "R=" + lblResultado.Text;
         }
     }
 }

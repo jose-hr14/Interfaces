@@ -53,9 +53,14 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.AtoolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.BtoolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.OperaciontoolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.RtoolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtbAcontextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblResultado
@@ -249,16 +254,59 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 282);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AtoolStripStatusLabel1,
+            this.BtoolStripStatusLabel2,
+            this.OperaciontoolStripStatusLabel3,
+            this.RtoolStripStatusLabel4});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 280);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(345, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(345, 24);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // AtoolStripStatusLabel1
+            // 
+            this.AtoolStripStatusLabel1.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.AtoolStripStatusLabel1.Name = "AtoolStripStatusLabel1";
+            this.AtoolStripStatusLabel1.Size = new System.Drawing.Size(33, 19);
+            this.AtoolStripStatusLabel1.Text = "A=0";
+            // 
+            // BtoolStripStatusLabel2
+            // 
+            this.BtoolStripStatusLabel2.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.BtoolStripStatusLabel2.Name = "BtoolStripStatusLabel2";
+            this.BtoolStripStatusLabel2.Size = new System.Drawing.Size(32, 19);
+            this.BtoolStripStatusLabel2.Text = "B=0";
+            // 
+            // OperaciontoolStripStatusLabel3
+            // 
+            this.OperaciontoolStripStatusLabel3.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.OperaciontoolStripStatusLabel3.Name = "OperaciontoolStripStatusLabel3";
+            this.OperaciontoolStripStatusLabel3.Size = new System.Drawing.Size(154, 19);
+            this.OperaciontoolStripStatusLabel3.Text = "Operación no seleccionada";
+            // 
+            // RtoolStripStatusLabel4
+            // 
+            this.RtoolStripStatusLabel4.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.RtoolStripStatusLabel4.Name = "RtoolStripStatusLabel4";
+            this.RtoolStripStatusLabel4.Size = new System.Drawing.Size(32, 19);
+            this.RtoolStripStatusLabel4.Text = "R=0";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Ej32_03_01A.Properties.Resources.Elon_Musk_empieza_a_trabajar_con_desarrolladores_de_Dogecoin;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(345, 304);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
@@ -268,12 +316,14 @@
             this.Controls.Add(this.lblResultado);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Ej35";
+            this.Text = "Ej36";
             this.txtbAcontextMenuStrip1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,6 +353,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel AtoolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel BtoolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel OperaciontoolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel RtoolStripStatusLabel4;
     }
 }
 
