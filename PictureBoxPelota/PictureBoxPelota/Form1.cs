@@ -33,33 +33,53 @@ namespace PictureBoxPelota
             int avanceHaciaLaAbajo = 0;
 
 
-            avanceHaciaLaDerecha = numAleatorio.Next(0, 3);
-            avanceHaciaLaAbajo = numAleatorio.Next(0, 3);
+            avanceHaciaLaDerecha = numAleatorio.Next(3, 6);
+            avanceHaciaLaAbajo = numAleatorio.Next(3, 6);
+
             if(derecha)
                 pictureBox1.Left = pictureBox1.Left + avanceHaciaLaDerecha;
             if(izquierda)
                 pictureBox1.Left = pictureBox1.Left - avanceHaciaLaDerecha;
             if (abajo)
                 pictureBox1.Top = pictureBox1.Top + avanceHaciaLaAbajo;
-
             if(arriba)
                 pictureBox1.Top = pictureBox1.Top - avanceHaciaLaAbajo;
 
-            if (pictureBox1.Top == this.Height - pictureBox1.Height)
+            if (pictureBox1.Location.Y > this.Height - pictureBox1.Height)
             {
                 arriba = true;
                 abajo = false;
             }
-            if (pictureBox1.Left == this.Width - pictureBox1.Width)
+            if (pictureBox1.Location.X > this.Width - pictureBox1.Width)
             {
                 derecha = false;
                 izquierda = true;
             }
-            if(pictureBox1.Top == 0)
+            if(pictureBox1.Location.Y < 0)
             {
                 arriba = false;
                 abajo = true;
             }
+            if(pictureBox1.Location.X < 0)
+            {
+                derecha = true;
+                izquierda = false;
+            }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            pictureBox2.Top++;
         }
     }
 }
