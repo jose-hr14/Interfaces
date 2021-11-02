@@ -63,6 +63,26 @@ namespace PictureBoxPelota.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _10_excentridades_elon_musk_han_dado_vuelta_mundo_2029559 {
+            get {
+                object obj = ResourceManager.GetObject("10-excentridades-elon-musk-han-dado-vuelta-mundo-2029559", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _10_excentridades_elon_musk_han_dado_vuelta_mundo_20295591 {
+            get {
+                object obj = ResourceManager.GetObject("10-excentridades-elon-musk-han-dado-vuelta-mundo-20295591", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dogecoin_memejpg {
             get {
                 object obj = ResourceManager.GetObject("dogecoin-memejpg", resourceCulture);
