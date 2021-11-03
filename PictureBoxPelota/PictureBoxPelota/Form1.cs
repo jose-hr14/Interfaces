@@ -45,12 +45,12 @@ namespace PictureBoxPelota
             if(arriba)
                 pictureBox1.Top = pictureBox1.Top - avanceHaciaLaAbajo;
 
-            if (pictureBox1.Location.Y > this.Height - pictureBox1.Height)
+            if (pictureBox1.Location.Y > this.Height - (pictureBox1.Height + 600))
             {
                 arriba = true;
                 abajo = false;
             }
-            if (pictureBox1.Location.X > this.Width - pictureBox1.Width)
+            if (pictureBox1.Location.X > this.Width - (pictureBox1.Width + 10))
             {
                 derecha = false;
                 izquierda = true;
@@ -75,11 +75,6 @@ namespace PictureBoxPelota
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-        }
-
-        private void Form1_KeyUp(object sender, KeyEventArgs e)
-        {
-            pictureBox2.Top++;
         }
     }
 }
