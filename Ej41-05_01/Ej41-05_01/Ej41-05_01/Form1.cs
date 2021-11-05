@@ -26,6 +26,8 @@ namespace Ej41_05_01
         {
             label1.Text = checkedListBox1.SelectedIndex.ToString();
             label2.Text = checkedListBox1.SelectedItem.ToString();
+            if (checkedListBox1.GetItemChecked(2) == true)
+                MessageBox.Show("Tenemos memoria RAM");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,8 +40,8 @@ namespace Ej41_05_01
 
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            if (e.Index == 2 && e.NewValue == CheckState.Checked)
-                MessageBox.Show("Tenemos memoria RAM");         
+            //if (e.Index == 2 && e.NewValue == CheckState.Checked)
+         
         }
     }
 }
