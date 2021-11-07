@@ -16,8 +16,8 @@ namespace Ej37
         public Form1()
         {
             InitializeComponent();
-            label1.Text = "";
-            label2.Text = "1";
+            label1.Text = "0";
+            label2.Text = "100";
             timer1.Interval = trackBar1.Value;
         }
 
@@ -40,6 +40,7 @@ namespace Ej37
         private void button3_Click(object sender, EventArgs e)
         {
             contador = 0;
+            label1.Text = "0";
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
