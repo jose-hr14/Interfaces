@@ -28,10 +28,11 @@ namespace CalculadoraLlenado
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //tamanio deposito / caudal
             int tiempoLlenado = Convert.ToInt32(textBox2.Text) / Convert.ToInt32(conversion());
-            double horas = (Convert.ToInt32(textBox2.Text) / Convert.ToInt32(textBox1.Text)) / 3600;
-            double minutos = tiempoLlenado % 3600 / 60;
-            double segundos = tiempoLlenado % 3600 % 60;
+            double horas = tiempoLlenado / 3600;
+            double minutos = (tiempoLlenado % 3600) / 60;
+            double segundos = (tiempoLlenado % 3600) % 60;
             label3.Text = "Tiempo estimado requerido para el llenado: " + horas + " horas " + minutos + " minutos " + segundos + " segundos";
         }
         private double conversion()
