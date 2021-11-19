@@ -59,15 +59,5 @@ namespace Ej48.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ingresar_en_el_ejercito_espanol {
-            get {
-                object obj = ResourceManager.GetObject("ingresar-en-el-ejercito-espanol", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
