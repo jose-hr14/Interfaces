@@ -21,22 +21,23 @@ namespace Ej50
             radioButton1.Checked = true;
             groupBox1.Text = "Vehículos";
 
-            //string[] archivos = Directory.GetFiles("Imagenes");
-            //ImageList imageLists = new ImageList();
-            //foreach(string archivo in archivos)
-            //{
-            //    imageLists.Images.Add(Image.FromFile(archivo));
-            //}
-            
+            string[] archivos = Directory.GetFiles("Imagenes");
+            ImageList imageLists = new ImageList();
+            foreach (string archivo in archivos)
+            {
+                imageLists.Images.Add(Image.FromFile(archivo));
+            }
 
-            ImageList imageList = new ImageList();
-            imageList.ImageSize = new Size(50, 50);
-            imageList.Images.Add(Image.FromFile("bmw.png"));
-            imageList.Images.Add(Image.FromFile("audi.png"));
-            imageList.Images.Add(Image.FromFile("dacia.jpg"));
-            imageList.Images.Add(Image.FromFile("ford.png"));
-            imageList.Images.Add(Image.FromFile("honda.jpg"));
-            listView1.LargeImageList = imageList;
+
+            //ImageList imageList = new ImageList();
+            //imageList.ImageSize = new Size(50, 50);
+            //imageList.Images.Add(Image.FromFile("bmw.png"));
+            //imageList.Images.Add(Image.FromFile("audi.png"));
+            //imageList.Images.Add(Image.FromFile("dacia.jpg"));
+            //imageList.Images.Add(Image.FromFile("ford.png"));
+            //imageList.Images.Add(Image.FromFile("honda.jpg"));
+            imageLists.ImageSize = new Size(50, 50);
+            listView1.LargeImageList = imageLists;
 
 
             listView1.Groups.Add(coches);
@@ -79,6 +80,17 @@ namespace Ej50
         private void button2_Click_1(object sender, EventArgs e)
         {
             listView1.Items.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            listView1.SelectedItems[0].Remove();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            listView1.SelectedItems[0].Text = textBox1.Text;
+            listView1.SelectedItems[0].ImageIndex = Convert.ToInt32(textBox2.Text);
         }
     }
 }
