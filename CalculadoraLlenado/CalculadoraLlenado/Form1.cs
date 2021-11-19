@@ -29,11 +29,12 @@ namespace CalculadoraLlenado
         private void button1_Click(object sender, EventArgs e)
         {
             //tamanio deposito / caudal
-            int tiempoLlenado = Convert.ToInt32(textBox2.Text) / Convert.ToInt32(conversion());
-            double horas = tiempoLlenado / 3600;
-            double minutos = (tiempoLlenado % 3600) / 60;
-            double segundos = (tiempoLlenado % 3600) % 60;
+            double tiempoLlenado = Convert.ToDouble(textBox2.Text) / Convert.ToDouble(conversion());
+            int horas = (int)(tiempoLlenado / 3600);
+            int minutos = (int)((tiempoLlenado % 3600) / 60);
+            int segundos = (int)((tiempoLlenado % 3600) % 60);
             label3.Text = "Tiempo estimado requerido para el llenado: " + horas + " horas " + minutos + " minutos " + segundos + " segundos";
+
         }
         private double conversion()
         {
@@ -98,27 +99,27 @@ namespace CalculadoraLlenado
         }
         private double cm3dm3(double cantidad)
         {
-            return cantidad * 1000;
+            return cantidad / 1000;
         }
         private double cm3m3(double cantidad)
         {
-            return cantidad * 1000 * 1000;
+            return cantidad / 1000 / 1000;
         }
         private double dm3cm3(double cantidad)
         {
-            return cantidad / 1000;
+            return cantidad * 1000;
         }
         private double dm3m3(double cantidad)
         {
-            return cantidad * 1000;
+            return cantidad / 1000;
         }
         private double m3dm3(double cantidad)
         {
-            return cantidad / 1000;
+            return cantidad * 1000;
         }
         private double m3cm3(double cantidad)
         {
-            return cantidad / 1000 / 1000;
+            return cantidad * 1000 * 1000;
         }
     }
 }
