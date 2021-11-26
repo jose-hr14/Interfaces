@@ -185,7 +185,7 @@ namespace SegundaEvaluacion
             }
             Console.WriteLine();
 
-            List<int> listaRango = lista.FindAll(numero => (numero > 2 && numero < 8));
+            List<int> listaRango = lista.FindAll(numero => numero > 2 && numero < 8);
             Console.WriteLine("Todos los números de la lista entre 3 y 7");
             foreach (int numero in listaRango)
             {
@@ -195,7 +195,7 @@ namespace SegundaEvaluacion
         }
         static void Main()
         {
-            Lambda3();
+            
         }
     }
 }
