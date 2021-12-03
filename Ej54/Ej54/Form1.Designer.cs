@@ -58,7 +58,7 @@ namespace Ej54
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.button2_Click);
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnQuitar
             // 
@@ -68,7 +68,7 @@ namespace Ej54
             this.btnQuitar.TabIndex = 2;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = true;
-            this.btnQuitar.Click += new System.EventHandler(this.button3_Click);
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // txbNuevoNombre
             // 
@@ -92,7 +92,7 @@ namespace Ej54
             this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.button4_Click);
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // listBox1
             // 
