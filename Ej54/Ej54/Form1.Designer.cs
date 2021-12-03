@@ -29,70 +29,70 @@ namespace Ej54
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnQuitar = new System.Windows.Forms.Button();
+            this.txbNuevoNombre = new System.Windows.Forms.TextBox();
+            this.txbNombreProcesar = new System.Windows.Forms.TextBox();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAgregar
             // 
-            this.button1.Location = new System.Drawing.Point(449, 51);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAgregar.Location = new System.Drawing.Point(449, 51);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // button2
+            // btnModificar
             // 
-            this.button2.Location = new System.Drawing.Point(449, 80);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Modificar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnModificar.Location = new System.Drawing.Point(449, 80);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 1;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnQuitar
             // 
-            this.button3.Location = new System.Drawing.Point(449, 109);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Quitar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnQuitar.Location = new System.Drawing.Point(449, 109);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitar.TabIndex = 2;
+            this.btnQuitar.Text = "Quitar";
+            this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBox1
+            // txbNuevoNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(332, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.txbNuevoNombre.Location = new System.Drawing.Point(332, 53);
+            this.txbNuevoNombre.Name = "txbNuevoNombre";
+            this.txbNuevoNombre.Size = new System.Drawing.Size(100, 20);
+            this.txbNuevoNombre.TabIndex = 3;
             // 
-            // textBox2
+            // txbNombreProcesar
             // 
-            this.textBox2.Location = new System.Drawing.Point(332, 112);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.txbNombreProcesar.Location = new System.Drawing.Point(332, 112);
+            this.txbNombreProcesar.Name = "txbNombreProcesar";
+            this.txbNombreProcesar.Size = new System.Drawing.Size(100, 20);
+            this.txbNombreProcesar.TabIndex = 4;
             // 
-            // button4
+            // btnSalir
             // 
-            this.button4.Location = new System.Drawing.Point(449, 285);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Salir";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnSalir.Location = new System.Drawing.Point(449, 285);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 6;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.button4_Click);
             // 
             // listBox1
             // 
@@ -128,12 +128,12 @@ namespace Ej54
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.txbNombreProcesar);
+            this.Controls.Add(this.txbNuevoNombre);
+            this.Controls.Add(this.btnQuitar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnAgregar);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -143,12 +143,12 @@ namespace Ej54
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnQuitar;
+        private System.Windows.Forms.TextBox txbNuevoNombre;
+        private System.Windows.Forms.TextBox txbNombreProcesar;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

@@ -22,42 +22,46 @@ namespace Ej54
             listBox1.DataSource = null;
             listBox1.DataSource = lista;
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            lista.Add(textBox1.Text);
+            lista.Add(txbNuevoNombre.Text);
             listBox1.DataSource = null;
             listBox1.DataSource = lista;
+            txbNuevoNombre.Text = "";
+            txbNombreProcesar.Text = "";
         }
         private void button3_Click(object sender, EventArgs e)
         {
             if(lista.Count > 0)
             {
-                lista.Remove(textBox2.Text);
+                lista.RemoveAt(lista.IndexOf(txbNombreProcesar.Text));
                 listBox1.DataSource = null;
                 listBox1.DataSource = lista;
+                txbNuevoNombre.Text = "";
+                txbNombreProcesar.Text = "";
             }            
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            string palabra = textBox2.Text;
+            string palabra = txbNombreProcesar.Text;
             for(int i = 0; i < lista.Count; i++)
             {
-                if (textBox2.Text == lista[i])
+                if (txbNombreProcesar.Text == lista[i])
                 {
-                    lista[i] = textBox1.Text;
+                    lista[i] = txbNuevoNombre.Text;
                     //lista.RemoveAt(i);
                     //lista.Insert(i, textBox1.Text);
-                }
-                    
+                }              
             }
             listBox1.DataSource = null;
             listBox1.DataSource = lista;
+            txbNuevoNombre.Text = "";
+            txbNombreProcesar.Text = "";
         }
     }
 }
