@@ -42,6 +42,7 @@
             this.lblResultado = new System.Windows.Forms.Label();
             this.txtbA = new System.Windows.Forms.TextBox();
             this.txtbB = new System.Windows.Forms.TextBox();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +83,8 @@
             this.multiplicarToolStripMenuItem,
             this.dividirToolStripMenuItem,
             this.toolStripSeparator1,
-            this.habilitarToolStripMenuItem1});
+            this.habilitarToolStripMenuItem1,
+            this.toolStripMenuItem1});
             this.operacionesToolStripMenuItem.Name = "operacionesToolStripMenuItem";
             this.operacionesToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.operacionesToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
@@ -100,28 +102,28 @@
             // restarToolStripMenuItem
             // 
             this.restarToolStripMenuItem.Name = "restarToolStripMenuItem";
-            this.restarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.restarToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.restarToolStripMenuItem.Text = "Restar";
             this.restarToolStripMenuItem.Click += new System.EventHandler(this.restarToolStripMenuItem_Click);
             // 
             // multiplicarToolStripMenuItem
             // 
             this.multiplicarToolStripMenuItem.Name = "multiplicarToolStripMenuItem";
-            this.multiplicarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.multiplicarToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.multiplicarToolStripMenuItem.Text = "Multiplicar";
             this.multiplicarToolStripMenuItem.Click += new System.EventHandler(this.multiplicarToolStripMenuItem_Click);
             // 
             // dividirToolStripMenuItem
             // 
             this.dividirToolStripMenuItem.Name = "dividirToolStripMenuItem";
-            this.dividirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dividirToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.dividirToolStripMenuItem.Text = "Dividir";
             this.dividirToolStripMenuItem.Click += new System.EventHandler(this.dividirToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(187, 6);
             // 
             // habilitarToolStripMenuItem1
             // 
@@ -129,7 +131,7 @@
             this.habilitarToolStripMenuItem1.CheckOnClick = true;
             this.habilitarToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.habilitarToolStripMenuItem1.Name = "habilitarToolStripMenuItem1";
-            this.habilitarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.habilitarToolStripMenuItem1.Size = new System.Drawing.Size(190, 22);
             this.habilitarToolStripMenuItem1.Text = "Habilitar";
             this.habilitarToolStripMenuItem1.CheckStateChanged += new System.EventHandler(this.toolStripMenuItem1_CheckStateChanged);
             // 
@@ -164,6 +166,12 @@
             this.txtbB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtbB.Size = new System.Drawing.Size(100, 20);
             this.txtbB.TabIndex = 3;
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(190, 22);
+            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
             // 
             // Form1
             // 
@@ -200,6 +208,7 @@
         private System.Windows.Forms.TextBox txtbB;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem habilitarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 
