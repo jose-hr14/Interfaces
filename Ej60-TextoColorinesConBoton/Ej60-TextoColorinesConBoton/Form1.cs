@@ -19,6 +19,7 @@ namespace Ej60_TextoColorinesConBoton
 
         private void btnColor_Click(object sender, EventArgs e)
         {
+			lblTextoPrueba.ForeColor = Color.chocolate;
             ColorDialog colorDialog = new ColorDialog();
             colorDialog.ShowDialog();
             Color color =  colorDialog.Color;
