@@ -31,7 +31,7 @@ namespace Ej54
         }
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            if(lista.Count > 0)
+            if(lista.Count > 0 && txbNombreProcesar.Text != "")
             {
                 lista.RemoveAt(lista.IndexOf(txbNombreProcesar.Text));
                 listBox1.DataSource = null;
