@@ -24,6 +24,7 @@ namespace ProgWPF01
         {
             InitializeComponent();
             btnXAML.Click += new RoutedEventHandler(BtnXAML_Click);
+            MostrarlblCSharp();
         }
 
         private void MostrarlblCSharp()
