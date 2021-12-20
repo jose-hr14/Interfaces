@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C2CD6D9A-0B68-4A3B-9395-06F57D86EBA9}</ProjectGuid>
+    <ProjectGuid>{71019D11-5448-4FE5-A8E2-7B2FE4A78F2F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>EjercicioEspecialNoObligatorio_supuestamente_</RootNamespace>
-    <AssemblyName>EjercicioEspecialNoObligatorio%28supuestamente%29</AssemblyName>
+    <RootNamespace>Programa07_01A</RootNamespace>
+    <AssemblyName>Programa07_01A</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
