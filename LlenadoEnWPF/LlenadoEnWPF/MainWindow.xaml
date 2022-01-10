@@ -17,20 +17,25 @@
                 <Label Content="Caudal de salida de agua:" HorizontalAlignment="Left" Margin="114,36,0,0" VerticalAlignment="Top"/>
                 <Label Content="Tamaño del dispositivo de agua: " HorizontalAlignment="Left" Margin="114,106,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txbCaudalAgua" HorizontalAlignment="Left" Height="23" Margin="338,39,0,0" TextWrapping="Wrap" Text="txbCaudalAgua" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="txbTamañoDispositivo" HorizontalAlignment="Left" Height="23" Margin="338,106,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txbDeposito" HorizontalAlignment="Left" Height="23" Margin="338,106,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
                 <ComboBox x:Name="comboUnidadesCaudal" HorizontalAlignment="Left" Margin="514,40,0,0" VerticalAlignment="Top" Width="120">
+                    <ComboBoxItem Content="cm3/seg"/>
+                    <ComboBoxItem Content="dm3/seg"/>
+                    <ComboBoxItem Content="m3/seg"/>
+                </ComboBox>
+                <ComboBox x:Name="comboUnidadesDispositivo" HorizontalAlignment="Left" Margin="514,106,0,0" VerticalAlignment="Top" Width="120">
                     <ComboBoxItem Content="cm3"/>
                     <ComboBoxItem Content="dm3"/>
-                    <ComboBoxItem Content="l3"/>
+                    <ComboBoxItem Content="m3"/>
                 </ComboBox>
-                <ComboBox x:Name="comboUnidadesDispositivo" HorizontalAlignment="Left" Margin="514,106,0,0" VerticalAlignment="Top" Width="120"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Tareas a realizar" HorizontalAlignment="Left" Height="182" Margin="10,227,0,0" VerticalAlignment="Top" Width="772" Grid.ColumnSpan="3">
             <Grid HorizontalAlignment="Left" Height="162" Margin="10,10,-2,-13" VerticalAlignment="Top" Width="752">
-                <Button HorizontalAlignment="Left" Margin="189,108,0,0" VerticalAlignment="Top" Width="75" Height="20" Content="Calcular"/>
-                <Button Content="Limpiar" HorizontalAlignment="Left" Margin="336,108,0,0" VerticalAlignment="Top" Width="75"/>
-                <Button Content="Terminar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="493,110,0,0"/>
+                <Button HorizontalAlignment="Left" Margin="189,108,0,0" VerticalAlignment="Top" Width="75" Height="20" Content="Calcular" Click="BotonCalcular"/>
+                <Button Content="Limpiar" HorizontalAlignment="Left" Margin="336,108,0,0" VerticalAlignment="Top" Width="75" Click="BotonLimpiar"/>
+                <Button Content="Terminar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="493,110,0,0" Click="BotonTerminar"/>
+                <Label x:Name="lblResultado" Content="lblResultado" HorizontalAlignment="Left" Margin="189,56,0,0" VerticalAlignment="Top" Width="379"/>
             </Grid>
         </GroupBox>
 

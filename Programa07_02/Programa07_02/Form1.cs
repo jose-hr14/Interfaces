@@ -17,10 +17,13 @@ namespace Programa07_02
         {
             InitializeComponent();
 
-            //mktxbNombre.Mask = "LLLLL"; //opcional
-            //mktxbEdad.Mask = "00"; //opcional
+            lblProcesado1.Text = "";
+            lblProcesado2.Text = "";
 
-            mktxbNombre.Mask = "99999"; //opcional
+            //mktxbNombre.Mask = "LLLLL"; //obligatorio
+            //mktxbEdad.Mask = "00"; //obligatorio
+
+            mktxbNombre.Mask = "?????"; //opcional
             mktxbEdad.Mask = "99"; //opcional
 
             mktxbNombre.PromptChar = ' '; //ocultar la vista previal del masked textbox
@@ -37,9 +40,9 @@ namespace Programa07_02
 
         private void btnProcesar2_Click(object sender, EventArgs e)
         {
-            if (mktxbNombre.Text.Length > 0 && mktxbEdad.Text.Length > 0)
+            if (txbNombre1.Text.Length > 0 && txbEdad1.Text.Length > 0)
             {
-                lblProcesado1.Text = mktxbNombre.Text + " tiene una edad de " + mktxbEdad.Text;
+                lblProcesado2.Text = mktxbNombre.Text + " tiene una edad de " + mktxbEdad.Text;
             }
         }
 

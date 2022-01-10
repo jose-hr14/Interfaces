@@ -20,9 +20,99 @@ namespace LlenadoEnWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int tiempoInt, horas, minutos, segundos;
+        private double tiempoDouble, caudal, deposito;
+
+        private void BotonLimpiar(object sender, RoutedEventArgs e)
+        {
+            txbCaudalAgua.Text = "";
+            txbDeposito.Text = "";
+            comboUnidadesCaudal.Text = "Seleccionar";
+            comboUnidadesDispositivo.Text = "Seleccionar";
+        }
+
+        private void BotonTerminar(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            txbCaudalAgua.Text = "";
+            txbDeposito.Text = "";
+            comboUnidadesCaudal.Text = "Seleccionar";
+            comboUnidadesDispositivo.Text = "Seleccionar";
+        }
+
+        private void BotonCalcular(object sender, RoutedEventArgs e)
+        {
+            caudal = Convert.ToDouble(txbCaudalAgua.Text);
+            deposito = Convert.ToDouble(txbDeposito.Text);
+
+            if (comboUnidadesCaudal.SelectedIndex == 0)
+            {
+                switch (comboUnidadesDispositivo.SelectedIndex)
+                {
+                    case 0:
+                        tiempoDouble = deposito / caudal;
+                        break;
+                    case 1:
+                        tiempoDouble = deposito * Math.Pow(10, 3) / caudal;
+                        break;
+                    case 2:
+                        tiempoDouble = (deposito * Math.Pow(10, 6)) / caudal;
+                        break;
+                }
+            }
+            else if (comboUnidadesCaudal.SelectedIndex == 1)
+            {
+                switch (comboUnidadesDispositivo.SelectedIndex)
+                {
+                    case 0:
+                        tiempoDouble = deposito / (caudal * Math.Pow(10, 3));
+                        break;
+                    case 1:
+                        tiempoDouble = deposito / caudal;
+                        break;
+                    case 2:
+                        tiempoDouble = (deposito * Math.Pow(10, 3)) / caudal;
+                        break;
+                }
+            }
+            else if (comboUnidadesCaudal.SelectedIndex == 2)
+            {
+                switch (comboUnidadesDispositivo.SelectedIndex)
+                {
+                    case 0:
+                        tiempoDouble = deposito / (caudal * Math.Pow(10, 6));
+                        break;
+                    case 1:
+                        tiempoDouble = deposito / (caudal * Math.Pow(10, 3));
+                        break;
+                    case 2:
+                        tiempoDouble = deposito / caudal;
+                        break;
+                }
+            }
+
+            horas = minutos = segundos = 0;
+            tiempoInt = Convert.ToInt32(tiempoDouble);
+            horas = tiempoInt / 3600;
+            minutos = (tiempoInt % 3600) / 60;
+            segundos = (tiempoInt % 3600) % 60;
+
+            if (tiempoDouble < 1)
+            {
+                lblResultado.Content = "Tiempo estimado de llenado: menos de un segundo";
+            }
+            else
+            {
+                lblResultado.Content = "Tiempo estimado de llenado: " + horas + " horas, " + minutos + " minutos y " + segundos + " segundos";
+            }
         }
     }
+
 }
+    
