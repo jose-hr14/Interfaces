@@ -5,26 +5,90 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FacturaHotelWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Asistente para la confección de facturas" Height="450" Width="800">
     <Grid>
-        <Label Content="Nombre del cliente:" HorizontalAlignment="Left" Margin="30,34,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txbNombre" HorizontalAlignment="Left" Height="23" Margin="200,37,0,0" TextWrapping="Wrap" Text="txbNombre" VerticalAlignment="Top" Width="120"/>
-        <GroupBox Header="Habitación" HorizontalAlignment="Left" Height="100" Margin="30,92,0,0" VerticalAlignment="Top" Width="290">
-            <Grid HorizontalAlignment="Left" Height="80" Margin="10,10,-2,-13" VerticalAlignment="Top" Width="270">
-                <Label Content="Tipo" HorizontalAlignment="Left" Margin="20,23,0,0" VerticalAlignment="Top"/>
-                <RadioButton Content="Individual" HorizontalAlignment="Left" Margin="149,10,0,0" VerticalAlignment="Top"/>
-                <RadioButton Content="Doble" HorizontalAlignment="Left" Margin="149,30,0,0" VerticalAlignment="Top"/>
-                <RadioButton Content="Suite" HorizontalAlignment="Left" Margin="149,50,0,0" VerticalAlignment="Top"/>
-            </Grid>
-        </GroupBox>
-        <GroupBox Header="Extras" HorizontalAlignment="Left" Height="100" Margin="452,92,0,0" VerticalAlignment="Top" Width="290">
-            <Grid HorizontalAlignment="Left" Height="80" Margin="10,10,-2,-13" VerticalAlignment="Top" Width="270">
-                <Label Content="Comidas" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Desayuno" HorizontalAlignment="Left" Margin="169,15,0,0" VerticalAlignment="Top"/>
-                <CheckBox Content="Almuerzo" HorizontalAlignment="Left" Margin="169,55,0,0" VerticalAlignment="Top"/>
-            </Grid>
-        </GroupBox>
-        <TextBox HorizontalAlignment="Left" Height="149" Margin="30,243,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="712"/>
+        <Label Content="Nombre del _cliente:" 
+               Target="{Binding ElementName=txbNombre}"
+               HorizontalAlignment="Left" 
+               Margin="30,34,0,0" 
+               VerticalAlignment="Top"/>
 
+        <TextBox x:Name="txbNombre"
+                 
+                 ToolTipService.ShowDuration="3000"
+                 
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="200,37,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top"
+                 Width="120" 
+                 TabIndex="0">
+
+            <TextBox.ToolTip>
+                <TextBlock FontSize="30" Foreground="Red">Escribe el <LineBreak/>nombre del <LineBreak/> cliente</TextBlock>
+            </TextBox.ToolTip>
+
+        </TextBox>
+
+        <GroupBox x:Name="groupBoxHabitacion" Header="Habitación"
+                  ToolTip="Elija el tipo de habitacion"
+                  HorizontalAlignment="Left" 
+                  Height="100" Margin="30,92,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="290">
+            <Grid x:Name="gridHabitacion" 
+                HorizontalAlignment="Left" 
+                Height="80" 
+                Margin="10,10,-2,-13" 
+                VerticalAlignment="Top"
+                Width="270">
+                <Label 
+                    Content="Tipo" 
+                    HorizontalAlignment="Left" 
+                    Margin="20,23,0,0"
+                    VerticalAlignment="Top"/>
+                <RadioButton 
+                    x:Name="radioIndividual" 
+                    GroupName="groupBoxHabitacion"
+                    IsChecked="True"
+                    Content="Individual" 
+                    HorizontalAlignment="Left" 
+                    Margin="149,10,0,0" 
+                    VerticalAlignment="Top" TabIndex="1"/>
+                <RadioButton 
+                    x:Name="radioDoble" 
+                    GroupName="groupBoxHabitacion"
+                    Content="Doble" 
+                    HorizontalAlignment="Left" 
+                    Margin="149,30,0,0" 
+                    VerticalAlignment="Top" TabIndex="2"/>
+                <RadioButton x:Name="radioSuite" 
+                    Content="Suite" 
+                     GroupName="groupBoxHabitacion"
+                    HorizontalAlignment="Left"
+                    Margin="149,50,0,0" 
+                    VerticalAlignment="Top" TabIndex="3"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupExtras" Header="Extras" HorizontalAlignment="Left" Height="100" Margin="452,92,0,0" VerticalAlignment="Top" Width="290">
+            <Grid x:Name="gridExtras" HorizontalAlignment="Left" Height="80" Margin="10,10,-2,-13" VerticalAlignment="Top" Width="270">
+                <Label Content="Comidas" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkDesayuno" Content="Desayuno" HorizontalAlignment="Left" Margin="169,13,0,0" VerticalAlignment="Top" TabIndex="4"/>
+                <CheckBox x:Name="checkAlmuerzo" Content="Almuerzo" HorizontalAlignment="Left" Margin="169,39,0,0" VerticalAlignment="Top" TabIndex="5" RenderTransformOrigin="0.507,-1.067"/>
+            </Grid>
+        </GroupBox>
+        <TextBox x:Name="txbFactura" HorizontalAlignment="Left" Height="149" Margin="30,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="712" IsReadOnly="True" IsTabStop="False"/>
+        <Label Content="Número de _días:" Target="{Binding ElementName=txbNumeroDias}" HorizontalAlignment="Left" Margin="42,212,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.579,0.077"/>
+        <TextBox x:Name="txbNumeroDias" HorizontalAlignment="Left" Height="23" Margin="144,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Text="0" TextAlignment="Right" TabIndex="6"/>
+        <Button 
+            x:Name="buttonFactura" 
+            Content="_Factura" 
+            HorizontalAlignment="Left" 
+            Margin="452,212,0,0" 
+            VerticalAlignment="Top" 
+            Width="75" 
+            Click="PulsarBotonFactura" 
+            TabIndex="7"/>
     </Grid>
 </Window>

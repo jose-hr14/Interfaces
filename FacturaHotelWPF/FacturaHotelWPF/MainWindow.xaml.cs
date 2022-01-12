@@ -31,11 +31,69 @@ namespace FacturaHotelWPF
     /// El boton de facturas debe de poder pulsarse con Alt + F,
     /// al usar tabulador, recorrer todos los controles menos el textbox final, que será solo de lectura
     /// Al menos un radio botón del tipo de habitación debe de estar pulsado
+    /// alt c, alt d, alt f
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void PulsarBotonFactura(object sender, RoutedEventArgs e)
+        {
+            string nombreCliente = txbNombre.Text;
+            string habitacion = "";
+            string comida = "";
+            int numDias;
+            if (int.TryParse(txbNumeroDias.Text, out int numDiasInt))
+                numDias = numDiasInt;
+
+            int costeFactura = 0;
+            string factura = "Factura de la estancia en el hotel \n";
+            factura += "Nombre del cliente: " + nombreCliente + "\n";
+
+            if ((bool)radioIndividual.IsChecked)
+            {
+                habitacion = "Habitación individual: 75€ por noche \n";
+                costeFactura += 75;
+            }
+            else if ((bool)radioDoble.IsChecked)
+            {
+                habitacion = "Habitación doble: 125€ por noche \n";
+                costeFactura += 125;
+            }
+            else if ((bool)radioSuite.IsChecked)
+            {
+                habitacion = "Habitación suite: 200€ por noche \n";
+                costeFactura += 200;
+            }                
+            factura += habitacion;
+
+            if ((bool)checkDesayuno.IsChecked)
+            {
+                comida += "Desayuno: 15€ al día \n";
+                costeFactura += 40;
+            }
+            if ((bool)checkAlmuerzo.IsChecked)
+            {
+                comida += "Almuerzo: 40€ al día \n";
+                costeFactura += 15;
+            }                
+
+            factura += comida;
+
+            factura += "Número de días de estancia: " + numDiasInt + "\n";
+            factura += "El total a pagar es de: " + costeFactura;
+            txbFactura.Text = factura;
+
+            string factura1 = "Factura de la estancia en el hotel \n" +
+                "Nombre del cliente: " + nombreCliente + "\n" +
+                "Habitación" +  habitacion + ": " + "" + "por noche \n" +
+                "Almuerzo: 40€ al día \n" +
+                "Número de días de estancia: 3 \n" +
+                "El total a pagar es de 495€";
+
         }
     }
 }
