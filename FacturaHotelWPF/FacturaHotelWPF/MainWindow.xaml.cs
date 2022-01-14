@@ -36,18 +36,24 @@ namespace FacturaHotelWPF
     {
         public MainWindow()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         private void PulsarBotonFactura(object sender, RoutedEventArgs e)
-        {
+        {            
             string nombreCliente = txbNombre.Text;
             string habitacion = "";
             string comida = "";
             int numDias;
-            if (int.TryParse(txbNumeroDias.Text, out int numDiasInt))
+            if (int.TryParse(txbNumeroDias.Text, out int numDiasInt) && numDiasInt > 0)
+            {
                 numDias = numDiasInt;
+            }
+            else
+            {
+                MessageBox.Show("Se debe de escribir una cifra numérica distinta de 0", "Atención", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+                
 
             int costeFactura = 0;
             string factura = "Factura de la estancia en el hotel \n";
@@ -84,16 +90,12 @@ namespace FacturaHotelWPF
             factura += comida;
 
             factura += "Número de días de estancia: " + numDiasInt + "\n";
-            factura += "El total a pagar es de: " + costeFactura;
-            txbFactura.Text = factura;
+            factura += "El total a pagar es de: " + costeFactura;            
 
-            string factura1 = "Factura de la estancia en el hotel \n" +
-                "Nombre del cliente: " + nombreCliente + "\n" +
-                "Habitación" +  habitacion + ": " + "" + "por noche \n" +
-                "Almuerzo: 40€ al día \n" +
-                "Número de días de estancia: 3 \n" +
-                "El total a pagar es de 495€";
-
+            if(nombreCliente != "")
+            {
+                txbFactura.Text = factura;
+            }
         }
     }
 }
