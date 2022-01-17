@@ -48,53 +48,51 @@ namespace FacturaHotelWPF
             if (int.TryParse(txbNumeroDias.Text, out int numDiasInt) && numDiasInt > 0)
             {
                 numDias = numDiasInt;
+                int costeFactura = 0;
+                string factura = "Factura de la estancia en el hotel \n";
+                factura += "Nombre del cliente: " + nombreCliente + "\n";
+
+                if ((bool)radioIndividual.IsChecked)
+                {
+                    habitacion = "Habitación individual: 75€ por noche \n";
+                    costeFactura += 75;
+                }
+                else if ((bool)radioDoble.IsChecked)
+                {
+                    habitacion = "Habitación doble: 125€ por noche \n";
+                    costeFactura += 125;
+                }
+                else if ((bool)radioSuite.IsChecked)
+                {
+                    habitacion = "Habitación suite: 200€ por noche \n";
+                    costeFactura += 200;
+                }
+                factura += habitacion;
+
+                if ((bool)checkDesayuno.IsChecked)
+                {
+                    comida += "Desayuno: 15€ al día \n";
+                    costeFactura += 40;
+                }
+                if ((bool)checkAlmuerzo.IsChecked)
+                {
+                    comida += "Almuerzo: 40€ al día \n";
+                    costeFactura += 15;
+                }
+
+                factura += comida;
+
+                factura += "Número de días de estancia: " + numDiasInt + "\n";
+                factura += "El total a pagar es de: " + costeFactura;
+
+                if (nombreCliente != "")
+                {
+                    txbFactura.Text = factura;
+                }
             }
             else
             {
                 MessageBox.Show("Se debe de escribir una cifra numérica distinta de 0", "Atención", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-                
-
-            int costeFactura = 0;
-            string factura = "Factura de la estancia en el hotel \n";
-            factura += "Nombre del cliente: " + nombreCliente + "\n";
-
-            if ((bool)radioIndividual.IsChecked)
-            {
-                habitacion = "Habitación individual: 75€ por noche \n";
-                costeFactura += 75;
-            }
-            else if ((bool)radioDoble.IsChecked)
-            {
-                habitacion = "Habitación doble: 125€ por noche \n";
-                costeFactura += 125;
-            }
-            else if ((bool)radioSuite.IsChecked)
-            {
-                habitacion = "Habitación suite: 200€ por noche \n";
-                costeFactura += 200;
-            }                
-            factura += habitacion;
-
-            if ((bool)checkDesayuno.IsChecked)
-            {
-                comida += "Desayuno: 15€ al día \n";
-                costeFactura += 40;
-            }
-            if ((bool)checkAlmuerzo.IsChecked)
-            {
-                comida += "Almuerzo: 40€ al día \n";
-                costeFactura += 15;
-            }                
-
-            factura += comida;
-
-            factura += "Número de días de estancia: " + numDiasInt + "\n";
-            factura += "El total a pagar es de: " + costeFactura;            
-
-            if(nombreCliente != "")
-            {
-                txbFactura.Text = factura;
             }
         }
     }

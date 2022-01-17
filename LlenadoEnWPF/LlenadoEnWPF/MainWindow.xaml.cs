@@ -27,8 +27,9 @@ namespace LlenadoEnWPF
         {
             txbCaudalAgua.Text = "";
             txbDeposito.Text = "";
-            comboUnidadesCaudal.Text = "Seleccionar";
-            comboUnidadesDispositivo.Text = "Seleccionar";
+            lblResultado.Content = "";
+            comboUnidadesCaudal.SelectedIndex = 0;
+            comboUnidadesDispositivo.SelectedIndex = 0;
         }
 
         private void BotonTerminar(object sender, RoutedEventArgs e)
@@ -42,8 +43,9 @@ namespace LlenadoEnWPF
 
             txbCaudalAgua.Text = "";
             txbDeposito.Text = "";
-            comboUnidadesCaudal.Text = "Seleccionar";
-            comboUnidadesDispositivo.Text = "Seleccionar";
+            comboUnidadesCaudal.SelectedIndex = 0;
+            comboUnidadesDispositivo.SelectedIndex = 0;
+            lblResultado.Content = "";
         }
 
         private void BotonCalcular(object sender, RoutedEventArgs e)

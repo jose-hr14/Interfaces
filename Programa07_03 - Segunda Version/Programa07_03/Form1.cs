@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -156,6 +157,49 @@ namespace Programa07_03
 
                 txbDNI.Focus();
             }
+        }
+        //Procedimiento para leer y escribir en fichero
+        //File.AppendAllText(rutaFichero, campos)
+        private bool ExisteFichero()
+        {
+            if (File.Exists("DirFirPersonas.txt"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool ExisteDirectorio(string nombreDirectorio)
+        {
+            if(Directory.Exists("DirFirPersonas"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private void GuardarPersonasEnFichero(List<Persona> listaPersonas)
+        {
+            foreach(Persona persona in listaPersonas)
+            {
+                File.WriteAllText(".\\DirFirPersonas\\DirFirPersonas.txt" , persona.DNI + "/t" + persona.Nombre + "/t" + persona.Apellido1 + "/t" + persona.Apellido2 +
+                    persona.Edad + "/t");
+            }
+        }
+        private List<Persona> LeerPersonasEnFichero()
+        {
+            List<Persona> listaPersonas = new List<Persona>();
+            char[] separador = { '/', 't' };
+            foreach (string line in File.ReadLines(".\\DirFirPersonas\\DirFirPersonas.txt"))
+            {
+                string[] linea = line.Split(separador);
+                listaPersonas.Add(new Persona(linea[0]));
+            }
+            return listaPersonas;
         }
     }
 }
