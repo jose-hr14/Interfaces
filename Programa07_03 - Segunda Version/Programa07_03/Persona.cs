@@ -14,6 +14,11 @@ namespace Programa07_03
         private string apellido2;
         private int edad;
 
+        public Persona()
+        {
+
+        }
+
         public Persona(string dni, string nombre, string apellido1, string apellido2, int edad)
         {
             this.dni = dni;

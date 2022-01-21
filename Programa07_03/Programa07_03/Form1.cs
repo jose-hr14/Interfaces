@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace Programa07_03
             listaPersonas = new List<Persona>();
             dataGridView.DataSource = null;
             dataGridView.DataSource = listaPersonas;
+            StreamReader sr = new StreamReader(".\\DirListaPer\\FiListaPer.txt");
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
