@@ -14,6 +14,7 @@ namespace Programa07_04
     {
         public Form1()
         {
+            //openfiledialog, opensave dialog para el ejercicio siguiente, tiene que aparecer el formato png
             InitializeComponent();
             lblFechaComienzo.Text = "";
             lblFechaFin.Text = "";
