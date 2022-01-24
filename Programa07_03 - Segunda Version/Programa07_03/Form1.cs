@@ -45,27 +45,31 @@ namespace Programa07_03
             
             if(!listaPersonas.Exists(p => p.DNI == txbDNI.Text))
             {
-                Persona persona;
-                if (int.TryParse(txbEdad.Text, out int edadNum))
+                if(txbDNI.Text != "" && txbNombre.Text != "" && lblApellido1.Text != "" && txbApellido2.Text != "" &&
+                    txbEdad.Text != "")
                 {
-                    persona = new Persona(txbDNI.Text, txbNombre.Text, txbApellido1.Text, txbApellido2.Text, edadNum);
-                }                
-                else
-                {
-                    persona = new Persona(txbDNI.Text, txbNombre.Text, txbApellido1.Text, txbApellido2.Text, 0);
-                }
-                listaPersonas.Add(persona);
-                listaPersonas = listaPersonas.OrderBy(p => p.DNI).ToList();
-                dataGridView.DataSource = null;
-                dataGridView.DataSource = listaPersonas;
+                    Persona persona;
+                    if (int.TryParse(txbEdad.Text, out int edadNum))
+                    {
+                        persona = new Persona(txbDNI.Text, txbNombre.Text, txbApellido1.Text, txbApellido2.Text, edadNum);
+                    }
+                    else
+                    {
+                        persona = new Persona(txbDNI.Text, txbNombre.Text, txbApellido1.Text, txbApellido2.Text, 0);
+                    }
+                    listaPersonas.Add(persona);
+                    listaPersonas = listaPersonas.OrderBy(p => p.DNI).ToList();
+                    dataGridView.DataSource = null;
+                    dataGridView.DataSource = listaPersonas;
 
-                txbDNI.Clear();
-                txbNombre.Clear();
-                txbApellido1.Clear();
-                txbApellido2.Clear();
-                txbEdad.Clear();
+                    txbDNI.Clear();
+                    txbNombre.Clear();
+                    txbApellido1.Clear();
+                    txbApellido2.Clear();
+                    txbEdad.Clear();
 
-                txbDNI.Focus();
+                    txbDNI.Focus();
+                }               
             }
         }
 
@@ -74,6 +78,7 @@ namespace Programa07_03
             if(radioDNI.Checked == true)
             {
                 listaPersonas = listaPersonas.OrderBy(p => p.DNI).ToList();
+                //listaPersonas = listaPersonas.OrderByDescending(p => p.DNI).ToList();
                 dataGridView.DataSource = null;
                 dataGridView.DataSource = listaPersonas;
             }
@@ -85,7 +90,7 @@ namespace Programa07_03
             }
             if (radioApellido1.Checked == true)
             {
-                listaPersonas = listaPersonas.OrderBy(p => p.Apellido1).ToList();
+                listaPersonas = listaPersonas.OrderBy(p => p.Apellido1).ThenBy(p => p.Apellido1).ToList();
                 dataGridView.DataSource = null;
                 dataGridView.DataSource = listaPersonas;
             }
@@ -227,7 +232,7 @@ namespace Programa07_03
         {
             GuardarPersonasEnFichero(listaPersonas);
         }
-        private void lecturaJAime()
+        private void lecturaJaime()
         {
             FileInfo fichero;
             string registro;
