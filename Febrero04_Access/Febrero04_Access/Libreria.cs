@@ -23,9 +23,11 @@ namespace Febrero04_Access
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             this.form1 = form1;
             conexionConLaBD = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
             Data Source=C:\Users\José\Documents\GitHub\Interfaces\Febrero04_Access\Access_DbLibros.accdb");
+            conexionConLaBD = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\hernandez21107\Documents\GitHub\Interfaces\Febrero04_Access\Access_DbLibros.accdb");
             RellenarTabla();
         }
 
