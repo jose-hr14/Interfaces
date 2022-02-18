@@ -42,13 +42,16 @@ namespace Febrero01_Access
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            agregarRegistro();
-            buscado = false;
+            if (int.TryParse(txbEdad.Text, out int edad))
+            {
+                agregarRegistro();
+                buscado = false;
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if(buscado)
+            if(buscado && int.TryParse(txbEdad.Text, out int edad))
             {
                 modificarRegistro();
                 rellenarDataGridView();
@@ -75,7 +78,7 @@ namespace Febrero01_Access
                                  DELETE FROM Access_TaPersonas
                                  WHERE Dni = @Dni;";
             OleDbCommand instruccionesSql = new OleDbCommand(cadenaSql, conexionConLaBD);
-            instruccionesSql.Parameters.AddWithValue("@Dni", txtDniBuscar.Text);
+            instruccionesSql.Parameters.AddWithValue("@Dni", txbDni.Text);
             conexionConLaBD.Open();
             instruccionesSql.ExecuteNonQuery();
             conexionConLaBD.Close();
@@ -85,12 +88,13 @@ namespace Febrero01_Access
         }
         private void buscarRegistro()
         {
+            txbDni.Enabled = false;
             string cadenaSql = @"
                          SELECT *
                          FROM Access_TaPersonas
                          WHERE Dni = @Dni;";
             OleDbCommand instruccionesSql = new OleDbCommand(cadenaSql, conexionConLaBD);
-            instruccionesSql.Parameters.AddWithValue("@Dni", txtDniBuscar.Text);
+            instruccionesSql.Parameters.AddWithValue("@Dni", txbDni.Text);
 
             conexionConLaBD.Open();
             OleDbDataReader registro = instruccionesSql.ExecuteReader();
@@ -131,14 +135,14 @@ namespace Febrero01_Access
         private void modificarRegistro()
         {
             string cadenaSql = @"
-                         UPDATE Access_TaPersonas
-                         SET
-                         Dni = @Dni,
-                         Nombre = @Nombre,
-                         Apellido1 = @Apellido1,
-                         Apellido2 = @Apellido2,
-                         Edad = @Edad
-                         WHERE Dni = @Dni;";
+                        UPDATE Access_TaPersonas
+                        SET
+                        Dni = @Dni,
+                        Nombre = @Nombre,
+                        Apellido1 = @Apellido1,
+                        Apellido2 = @Apellido2,
+                        Edad = @Edad
+                        WHERE Dni = @Dni;";
             OleDbCommand instruccionesSql = new OleDbCommand(cadenaSql, conexionConLaBD);
             instruccionesSql.Parameters.AddWithValue("@Dni", txbDni.Text);
             instruccionesSql.Parameters.AddWithValue("@Nombre", txbNombre.Text);
@@ -151,6 +155,7 @@ namespace Febrero01_Access
             conexionConLaBD.Close();
             rellenarDataGridView();
             vaciarCampos();
+            txbDni.Enabled = true;
         }
 
         private void vaciarCampos()
@@ -160,12 +165,13 @@ namespace Febrero01_Access
             txbApellido1.Clear();
             txbApellido2.Clear();
             txbEdad.Clear();
-            txtDniBuscar.Clear();
+            txbDni.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             buscado = false;
+            txbDni.Enabled = true;
             vaciarCampos();
         }
         private bool existeDni()

@@ -42,8 +42,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtDniBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -173,22 +171,6 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(568, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 16);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "DNI a buscar:";
-            // 
-            // txtDniBuscar
-            // 
-            this.txtDniBuscar.Location = new System.Drawing.Point(675, 26);
-            this.txtDniBuscar.Name = "txtDniBuscar";
-            this.txtDniBuscar.Size = new System.Drawing.Size(113, 22);
-            this.txtDniBuscar.TabIndex = 15;
-            // 
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(571, 51);
@@ -216,8 +198,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.txtDniBuscar);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
@@ -256,8 +236,6 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtDniBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button button1;
     }

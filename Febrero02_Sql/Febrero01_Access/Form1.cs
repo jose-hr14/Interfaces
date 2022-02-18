@@ -53,13 +53,16 @@ namespace Febrero02_Sql
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            agregarRegistro();
-            buscado = false;
+            if (int.TryParse(txbEdad.Text, out int edad))
+            {
+                agregarRegistro();
+                buscado = false;
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if(buscado)
+            if(buscado && int.TryParse(txbEdad.Text, out int edad))
             {
                 modificarRegistro();
                 rellenarDataGridView();
@@ -86,7 +89,7 @@ namespace Febrero02_Sql
                                  DELETE FROM dbo.SqlS_TaPersonas
                                  WHERE Dni = @Dni;";
             SqlCommand instruccionesSql = new SqlCommand(cadenaSql, conexionConLaBD);
-            instruccionesSql.Parameters.AddWithValue("@Dni", txtDniBuscar.Text);
+            instruccionesSql.Parameters.AddWithValue("@Dni", txbDni.Text);
             conexionConLaBD.Open();
             instruccionesSql.ExecuteNonQuery();
             conexionConLaBD.Close();
@@ -101,7 +104,7 @@ namespace Febrero02_Sql
                          FROM dbo.SqlS_TaPersonas
                          WHERE Dni = @Dni;";
             SqlCommand instruccionesSql = new SqlCommand(cadenaSql, conexionConLaBD);
-            instruccionesSql.Parameters.AddWithValue("@Dni", txtDniBuscar.Text);
+            instruccionesSql.Parameters.AddWithValue("@Dni", txbDni.Text);
 
             conexionConLaBD.Open();
             SqlDataReader registro = instruccionesSql.ExecuteReader();
@@ -171,7 +174,7 @@ namespace Febrero02_Sql
             txbApellido1.Clear();
             txbApellido2.Clear();
             txbEdad.Clear();
-            txtDniBuscar.Clear();
+            txbDni.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
