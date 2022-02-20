@@ -33,7 +33,9 @@ namespace Febrero04_Access
 
         private void btnAutores_Click(object sender, EventArgs e)
         {
-
+            Autores autores = new Autores(this);
+            this.Hide();
+            autores.Show();
         }
     }
 }
