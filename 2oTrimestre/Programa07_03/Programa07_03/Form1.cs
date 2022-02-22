@@ -20,7 +20,7 @@ namespace Programa07_03
             listaPersonas = new List<Persona>();
             dataGridView.DataSource = null;
             dataGridView.DataSource = listaPersonas;
-            StreamReader sr = new StreamReader(".\\DirListaPer\\FiListaPer.txt");
+            //StreamReader sr = new StreamReader(".\\DirListaPer\\FiListaPer.txt");
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

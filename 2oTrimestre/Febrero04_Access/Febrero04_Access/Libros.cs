@@ -23,10 +23,11 @@ namespace Febrero04_Access
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
+            dataGridView1.AutoResizeColumns();
+            dataGridView1.AutoResizeRows();
             this.form1 = form1;
-            conexionConLaBD = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
-            Data Source=C:\Users\José\Documents\GitHub\Interfaces\Febrero04_Access\Access_DbLibros.accdb");
-            conexionConLaBD = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\hernandez21107\Documents\GitHub\Interfaces\Febrero04_Access\Access_DbLibros.accdb");
+            conexionConLaBD = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\José\Documents\GitHub\Interfaces\2oTrimestre\Febrero04_Access\Access_DbLibros.accdb");
+            //conexionConLaBD = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\hernandez21107\Documents\GitHub\Interfaces\Febrero04_Access\Access_DbLibros.accdb");
             RellenarTabla();
         }
 
@@ -38,8 +39,15 @@ namespace Febrero04_Access
         private void RellenarTabla()
         {
             string cadenaSql = @"
-                SELECT *
-                FROM Access_TaLibros";
+                SELECT Access_TaLibros.Isbn,
+                Access_TaLibros.Título,
+                Access_TaLibros.Editorial,
+                Access_TaLibros.Dni,
+                Access_TaAutores.Nombre,
+                Access_TaAutores.Apellido1,
+                Access_TaAutores.Apellido2
+                FROM Access_TaLibros, Access_TaAutores
+                WHERE Access_TaLibros.Dni = Access_TaAutores.Dni";
             OleDbDataAdapter puenteConLaTabla = new OleDbDataAdapter(cadenaSql, conexionConLaBD);
             DataTable tablaDeLaBD = new DataTable();
             puenteConLaTabla.Fill(tablaDeLaBD);
