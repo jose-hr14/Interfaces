@@ -22,6 +22,7 @@ namespace Febrero01_Access
     public partial class Form1 : Form
     {
         OleDbConnection conexionConLaBD;
+        Persona persona;
         bool buscado;
         public Form1()
         {
@@ -32,8 +33,9 @@ namespace Febrero01_Access
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             this.StartPosition = FormStartPosition.CenterScreen;
+            persona = new Persona();
             conexionConLaBD = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;
-            Data Source=C:\Users\José\Documents\GitHub\Interfaces\Febrero01_Access\Access_DbPersonas2.accdb");
+            Data Source=C:\Users\José\Documents\GitHub\Interfaces\2oTrimestre\Febrero05_Access\Access_DbPersonas2.accdb");
             rellenarDataGridView();
             buscado = false;
         }
@@ -54,8 +56,15 @@ namespace Febrero01_Access
         {
             if (int.TryParse(txbEdad.Text, out int edad))
             {
-                agregarRegistro();
-                buscado = false;
+                persona.Dni = txbDni.Text;
+                persona.Nombre = txbNombre.Text;
+                persona.Apellido1 = txbApellido1.Text;
+                persona.Apellido2 = txbApellido2.Text;
+                persona.Edad = txbEdad.Text;
+                persona.AgregarRegistro();
+                persona.LimpiarCampos();
+                rellenarDataGridView();
+                vaciarCampos();
             }
         }
 
@@ -63,23 +72,44 @@ namespace Febrero01_Access
         {
             if(buscado && int.TryParse(txbEdad.Text, out int edad))
             {
-                modificarRegistro();
+                persona.Dni = txbDni.Text;
+                persona.Nombre = txbNombre.Text;
+                persona.Apellido1 = txbApellido1.Text;
+                persona.Apellido2 = txbApellido2.Text;
+                persona.Edad = txbEdad.Text; 
+                persona.ModificarRegistro();
+                persona.LimpiarCampos();
                 rellenarDataGridView();
                 buscado = false;
+                txbDni.Enabled = true;
+                vaciarCampos();
             }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            buscarRegistro();
+            persona.Dni = txbDni.Text;
+            persona.BuscarRegistro();
+            txbDni.Text = persona.Dni;
+            txbNombre.Text = persona.Nombre;
+            txbApellido1.Text = persona.Apellido1;
+            txbApellido2.Text = persona.Apellido2;
+            txbEdad.Text = persona.Edad;
+            rellenarDataGridView();
             buscado = true;
+            txbDni.Enabled = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (buscado)
             {
-                borrarRegistro();
+                persona.Dni = txbDni.Text;
+                persona.BorrarRegistro();
+                rellenarDataGridView();
+                buscado = false;
+                txbDni.Enabled = true;
+                vaciarCampos();
             }
         }
         private void borrarRegistro()

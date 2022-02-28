@@ -29,6 +29,9 @@ namespace Febrero04_Access
             conexionConLaBD = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\José\Documents\GitHub\Interfaces\2oTrimestre\Febrero04_Access\Access_DbLibros.accdb");
             //conexionConLaBD = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\hernandez21107\Documents\GitHub\Interfaces\Febrero04_Access\Access_DbLibros.accdb");
             RellenarTabla();
+            txbNombre.Enabled = false;
+            txbApellido1.Enabled = false;
+            txbApellido2.Enabled = false;
         }
 
         private void Libros_FormClosed(object sender, FormClosedEventArgs e)
@@ -85,12 +88,14 @@ namespace Febrero04_Access
             instruccionesSql.ExecuteNonQuery();
             conexionConLaBD.Close();
             RellenarTabla();
-
         }
 
         private void BuscarRegistro()
         {
-            string cadenaSql = @"SELECT * FROM Access_TaLibros WHERE Isbn = @Isbn";
+            string cadenaSql = @"SELECT * 
+            FROM Access_TaLibros, Access_TaAutores 
+            WHERE Isbn = @Isbn
+            AND Access_TaLibros.Dni = Access_TaAutores.Dni";
             OleDbCommand instruccionesSql = new OleDbCommand(cadenaSql, conexionConLaBD);
             instruccionesSql.Parameters.AddWithValue("@Isbn", txbIsbn.Text);
 
@@ -102,6 +107,9 @@ namespace Febrero04_Access
                 txbTitulo.Text = registro[1].ToString();
                 txbEditorial.Text = registro[2].ToString();
                 txbDni.Text = registro[3].ToString();
+                txbNombre.Text = registro[5].ToString();
+                txbApellido1.Text = registro[6].ToString();
+                txbApellido2.Text = registro[7].ToString();
             }
             conexionConLaBD.Close();
         }
@@ -158,37 +166,66 @@ namespace Febrero04_Access
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            AgregarLibro();
-            VaciarCampos();
+            try
+            {
+                AgregarLibro();
+                VaciarCampos();
+            }
+            catch
+            {
+                VaciarCampos();
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if(!txbIsbn.Enabled)
+            try
             {
-                ModificarRegistro();
-                btnAgregar.Enabled = true;
-                txbIsbn.Enabled = true;
+                if (!txbIsbn.Enabled)
+                {
+                    ModificarRegistro();
+                    btnAgregar.Enabled = true;
+                    txbIsbn.Enabled = true;
+                    VaciarCampos();
+                }
+            }
+            catch
+            {
                 VaciarCampos();
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (!txbIsbn.Enabled)
+            try
             {
-                EliminarRegistro();
-                btnAgregar.Enabled = true;
-                txbIsbn.Enabled = true;
+                if (!txbIsbn.Enabled)
+                {
+                    EliminarRegistro();
+                    btnAgregar.Enabled = true;
+                    txbIsbn.Enabled = true;
+                    VaciarCampos();
+                }
+            }
+            catch
+            {
                 VaciarCampos();
             }
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            BuscarRegistro();
-            btnAgregar.Enabled = false;
-            txbIsbn.Enabled = false;
+            try
+            {
+                BuscarRegistro();
+                btnAgregar.Enabled = false;
+                txbIsbn.Enabled = false;
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -204,6 +241,9 @@ namespace Febrero04_Access
             txbTitulo.Text = "";
             txbEditorial.Text = "";
             txbDni.Text = "";
+            txbNombre.Text = "";
+            txbApellido1.Text = "";
+            txbApellido2.Text = "";
         }
     }
 }
